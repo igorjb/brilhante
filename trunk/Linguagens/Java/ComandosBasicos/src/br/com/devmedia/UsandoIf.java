@@ -10,7 +10,7 @@ public class UsandoIf {
         //ENTRADA
         Scanner entrada = new Scanner (System.in);
         System.out.println( "Digite seu consumo em KW" );
-        double valorKW = 0.72;
+        //double valorKW = 0.72;
         int consumoKW = entrada.nextInt();
         double valorPago = 0;
         
@@ -21,16 +21,16 @@ public class UsandoIf {
         //&& --> operador logico E (AND)
         //|| --> operador logico OU (OR)
         
-        
+        System.out.println("O consumo em KW e: " + consumoKW);
         //PROCESSAMENTO
         if (consumoKW == 0){
-             System.out.println( "VoÃ§Ãª nÃ£o consumiu energia energia este mes" );
-             valorPago = consumoKW * valorKW;
+             System.out.println( "Você não consumiu energia este mês" );
+             //valorPago = consumoKW * valorKW;
              
-        }else if (consumoKW < 0 || consumoKW > 1000 || consumoKW != 9999){
-             System.out.println( "Erro!!! valor nÃ£o pode ser negativo e nem maiores de 1000" );  
+        }else if (consumoKW < 0 || consumoKW > 1000){
+             System.out.println( "Erro!!! valor não pode ser negativo e nem maiores de 1000" );  
              
-        }else  if (consumoKW > 0 && consumoKW < 10){            
+        }else if (consumoKW > 0 && consumoKW < 10){            
             valorPago = consumoKW * 0.5;
         }   
         else if (consumoKW >= 10 && consumoKW < 100){        
