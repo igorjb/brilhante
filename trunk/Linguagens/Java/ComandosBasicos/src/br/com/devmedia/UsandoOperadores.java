@@ -35,8 +35,8 @@ public class UsandoOperadores {
         System.out.println( "Resultado:  " + resto );
         System.out.println( "IMC:  " + imc );
         System.out.println( "Contador:  " + contComando );
-        System.out.println( "é magro:  " + abaixoPeso );
-        System.out.println( "é forte:  " + acimaPeso );
+        System.out.println( "Esta magro:  " + abaixoPeso );
+        System.out.println( "Esta forte:  " + acimaPeso );
     }
     
 }
