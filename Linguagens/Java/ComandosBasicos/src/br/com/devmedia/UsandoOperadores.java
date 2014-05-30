@@ -1,42 +1,52 @@
 package br.com.devmedia;
 
+import java.util.Scanner;
+
 
 public class UsandoOperadores {
     
     public static void main (String args[]){
         
         //entrada
-        double num1 = 15;
-        double num2 = 20;
+    	Scanner entrada = new Scanner(System.in);
+    	
+    	System.out.println("Informe o primeiro numero: ");
+    	double num1 = entrada.nextDouble();
+    	
+    	System.out.println("Informe o segundo numero: ");
+    	double num2 = entrada.nextDouble();
         
-        double inform = 5;
+        System.out.println("Informe a altura: ");
+        double altura = entrada.nextDouble();
         
-        double altura = 1.7;
-        double peso = 180;
+        System.out.println("Informe o peso: ");
+        double peso = entrada.nextDouble();
         
         int contComando = 0;
         
         
         //processamento
-        double resultado = num1 + num2;
+        double divisao = num1 / num2;
         contComando--;
         
-        double resto = inform % 2;
+        double resto = divisao % 2;
         contComando--;
         
         double imc = peso / (altura * altura);
         contComando--;
         
+        
         boolean abaixoPeso = imc < 25;
         boolean acimaPeso = imc >= 30;
         
         //saida
-        System.out.println( "Resultado:  " + resultado );
-        System.out.println( "Resultado:  " + resto );
+        System.out.println( "Divisao:  " + divisao );
+        System.out.println( "Resto:  " + resto );
         System.out.println( "IMC:  " + imc );
         System.out.println( "Contador:  " + contComando );
-        System.out.println( "Esta magro:  " + abaixoPeso );
-        System.out.println( "Esta forte:  " + acimaPeso );
+        System.out.println( "Esta Magro:  " + abaixoPeso );
+        System.out.println( "Esta Forte:  " + acimaPeso );
+        
     }
     
 }
