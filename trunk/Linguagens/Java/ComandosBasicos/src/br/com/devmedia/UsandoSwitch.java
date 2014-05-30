@@ -40,7 +40,7 @@ public class UsandoSwitch {
                 break;
             case 9 : numeroExtenso = "nove";
                 break;
-            default : numeroExtenso = "Valor não suportado";
+            default : numeroExtenso = "Valor nao suportado";
                 break;
         }
         
