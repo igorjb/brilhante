@@ -20,27 +20,38 @@ public class UsandoSwitch {
 
             //PROCESSAMENTO
         switch (num) {
-            case 0 : numeroExtenso = "zero";
+            case 0 : 
+            	numeroExtenso = "zero";
                 break;
-            case 1 : numeroExtenso = "um";
+            case 1 : 
+            	numeroExtenso = "um";
                 break;
-            case 2 : numeroExtenso = "dois";
+            case 2 : 
+            	numeroExtenso = "dois";
                 break;
-            case 3 : numeroExtenso = "tres";
+            case 3 : 
+            	numeroExtenso = "tres";
                 break;
-            case 4 : numeroExtenso = "quatro";
+            case 4 : 
+            	numeroExtenso = "quatro";
                 break;
-            case 5 : numeroExtenso = "cinco";
+            case 5 : 
+            	numeroExtenso = "cinco";
                 break;
-            case 6 : numeroExtenso = "seis";
+            case 6 : 
+            	numeroExtenso = "seis";
                 break;
-            case 7 : numeroExtenso = "sete";
-                break;  
-            case 8 : numeroExtenso = "oito";
+            case 7 : 
+            	numeroExtenso = "sete";
                 break;
-            case 9 : numeroExtenso = "nove";
+            case 8 : 
+            	numeroExtenso = "oito";
                 break;
-            default : numeroExtenso = "Valor nao suportado";
+            case 9 : 
+            	numeroExtenso = "nove";
+                break;
+            default : 
+            	numeroExtenso = "Valor nao suportado";
                 break;
         }
         
