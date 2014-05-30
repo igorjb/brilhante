@@ -9,7 +9,7 @@ public class UsandoIf {
         
         //ENTRADA
         Scanner entrada = new Scanner (System.in);
-        System.out.println( "Digite seu consumo em KW" );
+        System.out.println( "Digite seu consumo em KW:" );
         //double valorKW = 0.72;
         int consumoKW = entrada.nextInt();
         double valorPago = 0;
