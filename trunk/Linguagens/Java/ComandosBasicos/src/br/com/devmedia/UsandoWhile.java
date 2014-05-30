@@ -17,13 +17,14 @@ public class UsandoWhile {
               System.out.println("Digite 1 para sair");
               condicao = entrada.nextInt();
             
-              System.out.println("Voçê digitou o numero " + condicao);
+              System.out.println("Voce digitou o numero " + condicao);
             
               System.out.println("Digite 1 para sair");
               condicao = entrada.nextInt();
             
         } while (condicao != 1);
-        System.out.println("Até Logo");
+        
+        System.out.println("Ate Logo");
         
         
         
