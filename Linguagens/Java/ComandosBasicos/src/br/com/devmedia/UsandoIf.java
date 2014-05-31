@@ -21,7 +21,7 @@ public class UsandoIf {
         //&& --> operador logico E (AND)
         //|| --> operador logico OU (OR)
         
-        System.out.println("O consumo em KW e: " + consumoKW);
+        System.out.println("O consumo em KW é: " + consumoKW);
         //PROCESSAMENTO
         if (consumoKW == 0){
              System.out.println( "Você não consumiu energia este mês" );
