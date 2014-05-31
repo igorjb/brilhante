@@ -14,7 +14,7 @@ public class UsandoSwitch {
 
             //ENTRADA
             Scanner entrada = new Scanner(System.in);
-            System.out.println("Digite um numero de 0 a 9");
+            System.out.println("Digite um número de 0 a 9");
             int num = entrada.nextInt();
             String numeroExtenso = "";
 
@@ -30,7 +30,7 @@ public class UsandoSwitch {
             	numeroExtenso = "dois";
                 break;
             case 3 : 
-            	numeroExtenso = "tres";
+            	numeroExtenso = "três";
                 break;
             case 4 : 
             	numeroExtenso = "quatro";
@@ -51,7 +51,7 @@ public class UsandoSwitch {
             	numeroExtenso = "nove";
                 break;
             default : 
-            	numeroExtenso = "Valor nao suportado";
+            	numeroExtenso = "Valor não suportado";
                 break;
         }
         
