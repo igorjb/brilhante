@@ -40,12 +40,12 @@ public class UsandoOperadores {
         boolean acimaPeso = imc >= 30;
         
         //saida
-        System.out.println( "Divisao:  " + divisao );
+        System.out.println( "Divisão:  " + divisao );
         System.out.println( "Resto:  " + resto );
         System.out.println( "IMC:  " + imc );
         System.out.println( "Contador:  " + contComando );
-        System.out.println( "Esta Magro:  " + abaixoPeso );
-        System.out.println( "Esta Forte:  " + acimaPeso );
+        System.out.println( "Está Magro:  " + abaixoPeso );
+        System.out.println( "Está Forte:  " + acimaPeso );
         
     }
     
