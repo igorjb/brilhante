@@ -8,7 +8,21 @@ public class UsandoArrays
 	{
 		//entrada
 		int idade[] = new int[10];
+		/*
+		int jogoDaVelha[] [] = new int[3] [3];
 		
+		jogoDaVelha [0] [0] = 100;
+		jogoDaVelha [0] [1] = 200;
+		jogoDaVelha [0] [2] = 300;
+		jogoDaVelha [1] [0] = 300;
+		
+		jogoDaVelha [2] [2] = 300;
+		
+		int dados[] = { 1, 2, 3, 4, 6};
+		
+		System.out.println(jogoDaVelha[0] [1]);
+		
+		*/
 		for (int i = 0; i < idade.length; i++) 
 		{
 			idade[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite a idade " + (i + 1)));
@@ -27,5 +41,6 @@ public class UsandoArrays
 		
 		//saída
 		JOptionPane.showMessageDialog(null, "Média: " + media);
+		
 	}
 }
