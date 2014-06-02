@@ -20,7 +20,7 @@ public class UsandoJOptionPaneWrapper
 			} 
 			catch (Exception e) 
 			{
-				JOptionPane.showMessageDialog(null, "Erro!!! Salário Não pode ser por extenso!!!");
+				JOptionPane.showMessageDialog(null, "Erro!!! Dado inválido!!!");
 				aux = JOptionPane.showInputDialog(null, "Digite seu salário em números:");
 				salario = Double.parseDouble(aux);
 			}
@@ -33,9 +33,11 @@ public class UsandoJOptionPaneWrapper
 			
 			
 			//saída
-			JOptionPane.showMessageDialog(null, "Nome Completo: " + nomeCompleto);
-			JOptionPane.showMessageDialog(null, "Salário: " + salario);
-			JOptionPane.showMessageDialog(null, "Idade: " + idade);
+			JOptionPane.showMessageDialog(null, "Nome Completo: " + nomeCompleto + 
+												", Salário: " + salario +
+												", Idade: " + idade);
+			//JOptionPane.showMessageDialog(null, "Salário: " + salario);
+			//JOptionPane.showMessageDialog(null, "Idade: " + idade);
 			
 	}
 }
