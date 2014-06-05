@@ -13,15 +13,7 @@ public class UsandoModeloOO
 		
 		//processamento
 		
-		for (int i = 0; i < texto.length(); i++)
-		{
-			char letra = texto.charAt(i);
-			int ascii = (int) letra;
-			int novaLetraAsc = ascii - 32;
-			char novaLetra = (char) novaLetraAsc;
-			
-			saida = saida + novaLetra;
-		}
+		saida = texto.toUpperCase();
 		
 		//saída
 
