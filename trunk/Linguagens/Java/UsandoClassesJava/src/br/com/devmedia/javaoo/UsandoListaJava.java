@@ -1,20 +1,31 @@
 package br.com.devmedia.javaoo;
 
+import java.util.ArrayList;
+
 public class UsandoListaJava 
 {
 	public static void main(String[] args) 
 	{
-		String nome[] = new String[20];
-		int idade[] = new int[10];
+		ArrayList<String> lista = new ArrayList<String>();
+		lista.add("Maria");
+		lista.add("Pedro");
+		lista.add("Joana");
+		lista.add("Maria");
 		
-		nome[0] = "Olá";
-		idade[9] = 15;
+		if (lista.contains("Maria"))
+		{
+			System.out.println("Achou");
+		}
+		else
+		{
+			System.out.println("Objeto não encontrado");
+		}
 		
-		String aux = nome[3];
-		int result = idade[0]+idade[9];
+		String elemento = lista.get(0);
+		System.out.println(elemento);
 		
-		System.out.println("Resultado: " + result);
-
+		String ultimoElemento = lista.get(lista.size() - 1);
+		System.out.println(elemento);
 	}
 
 }
