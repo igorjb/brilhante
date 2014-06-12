@@ -25,7 +25,7 @@ public class UsandoListaJava
 		System.out.println(elemento);
 		
 		String ultimoElemento = lista.get(lista.size() - 1);
-		System.out.println(elemento);
+		System.out.println(ultimoElemento);
 	}
 
 }
