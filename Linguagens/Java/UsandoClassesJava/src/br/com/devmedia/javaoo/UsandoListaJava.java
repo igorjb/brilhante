@@ -10,7 +10,7 @@ public class UsandoListaJava
 		lista.add("Maria");
 		lista.add("Pedro");
 		lista.add("Joana");
-		lista.add("Maria");
+		lista.add("Jose");
 		
 		if (lista.contains("Maria"))
 		{
@@ -26,6 +26,11 @@ public class UsandoListaJava
 		
 		String ultimoElemento = lista.get(lista.size() - 1);
 		System.out.println(ultimoElemento);
+		
+		for (int i = 0; i < lista.size(); i++) 
+		{
+			String element = lista.get(i);
+			System.out.println("Elemento = " + element);
+		}
 	}
-
 }
