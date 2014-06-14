@@ -4,20 +4,24 @@ import java.util.Date;
 
 public class UsandoDataHora 
 {
-	public static void main(String[] args) 
+	public static String getDataFormatada(Date data) 
 	{
-		String texto = "Ola Mundo";
+		int dia = data.getDate();
+		int mes = data.getMonth() + 1;
+		int ano = data.getYear() + 1900;
 		
+		String retorno = (dia + "/" + mes + "/" + ano);
+		
+		return retorno;
+	}
+	
+	public static void main(String[] args) 
+	{	
 		Date agora = new Date();
 		
-		int dia = agora.getDate();
-		int mes = agora.getMonth() + 1;
-		int ano = agora.getYear() + 1900;
+		String dataFormat = getDataFormatada(agora);
 		
-		int hora = agora.getHours();
-		int minuto = agora.getMinutes();
-		
-		System.out.println(dia + "/" + mes + "/" + ano);
+		System.out.println(dataFormat);
 		
 		String formatoExtenso = agora.toString();
 		
