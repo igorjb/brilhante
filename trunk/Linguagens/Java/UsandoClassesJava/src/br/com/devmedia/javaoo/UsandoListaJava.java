@@ -1,51 +1,37 @@
 package br.com.devmedia.javaoo;
 
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Iterator;
 
-public class UsandoListaJava {
-
-   
-    public static void main(String[] args) {
+public class UsandoListaJava 
+{   
+    public static void main(String[] args) 
+    {
+    	//Pesquisando valores de uma lista
+    	
+    	//Pelo Hashtable
+        Hashtable<String, String> lista = new Hashtable<String, String>();
+        lista.put("joao", "joao;Rua das Flores;123;Curitiba;PR");
+        lista.put("maria", "maria;Rua das Americas;123456;Florianopolis;SC");
         
-        ArrayList<String> lista = new ArrayList();
-        lista.add("Maria");
-        lista.add("Pedro");
-        lista.add("Joana");
-        lista.add( "Jose");
-        
-        if (lista.contains ("Maria")) {
-            System.out.println( "Achou ");            
-        } else{
-            System.out.println("Objeto não encontrado");
-        }
-        
-        String elemento = lista.get( 0 );
+        String elemento = lista.get("maria");
         System.out.println(elemento);
         
-        String ultimoElemento = lista.get( lista.size() -1 );
-        System.out.println(ultimoElemento);
+        //Percorrendo valores de uma lista
         
-        //Retornando Valores de Uma Lista:
+        //Pelo Enumeration
         
-        //Pelo tamanho da lista
+        //Retornando Elementos
         
-    	/*for (int i = 0; i < lista.size(); i++) 
-		{
-			String element = lista.get(i);
-			System.out.println("Elemento = " + element);
-		}*/
-    	
-        //Pelo Iterator
+        //Enumeration<String> en = lista.elements();
         
-        Iterator<String> it = lista.iterator();
+        //Retornando Chaves
+        Enumeration<String> en = lista.keys();
         
-        while ( it.hasNext())
+        while (en.hasMoreElements()) 
         {
-            elemento = it.next();
-            System.out.println( "Elemento " +elemento );
-        }
+			elemento = en.nextElement();
+			System.out.println(elemento);
+		}
     }
 }
