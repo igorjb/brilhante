@@ -9,7 +9,7 @@ public class UsandoMinhaClasse
 		String resposta = "";
 		
 		//entrada
-		String op = JOptionPane.showInputDialog(null, "Baskara(B) ou Fatorial(F)?");
+		String op = JOptionPane.showInputDialog(null, "Bhaskara(B) ou Fatorial(F)?");
 		
 		//processamento
 		if (op.equals("B"))
