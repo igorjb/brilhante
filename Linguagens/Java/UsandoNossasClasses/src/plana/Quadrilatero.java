@@ -1,78 +1,57 @@
 package plana;
-
-public class Quadrilatero 
+/**
+ * 
+ * Classe responsável pelo armazenamento de informações de uma figura plana de quatro lados.
+ *
+ * @author Igor Brilhante
+ * @version 2.0
+ */
+public class Quadrilatero extends FiguraPlana
 {
-	private int lado1;
-	private int lado2;
-	
-	//Construtores
-	
-	//Sem parâmetros
+
+	/**
+	 * Método construtor sem parâmetros responsável po valorizar os atributos com 10.
+	 */
 	public Quadrilatero()
 	{
-		this.lado1 = 10;
-		this.lado2 = 10;
+		super();
 	}
 	
-	//Com parâmetros
+	/**
+	 * Método construtor com dois parâmetros que define valores iniciais para os atributos lado1 e lado2
+	 * @param l1 Valor correspondente ao lado1 do quadrilátero
+	 * @param l2 Valor correspondente ao lado2 do quadrilátero
+	 */
 	public Quadrilatero(int l1, int l2)
 	{
-		this.lado1 = l1;
-		this.lado2 = l2;
+		super(l1, l2);
 	}
 	
-	
-	public int getLado1() {
-		return this.lado1;
-	}
-	public int getLado2() {
-		return this.lado2;
-	}
-	
-	public void setLado1(int l1) 
-	{
-		if (l1 > 0)
-		{
-			this.lado1 = l1;
-		} else {
-			this.lado1 = 0;
-		}
-		
-	}
-	public void setLado2(int l2) 
-	{
-		if (l2 > 0)
-		{
-			this.lado2 = l2;
-		} else {
-			this.lado2 = 0;
-		}
-		
-	}
-	
-	public String getDadosFormatados()
-	{
-		return this.lado1 + " - " + this.lado2;
-	}
-	
-	public String toString() 
-	{
-		return this.getDadosFormatados();
-	}
-	
+	/**
+	 * Retorna a área do quadrilátero (lado 1 x lado 2)
+	 * @return Área do quadrilátero
+	 */
 	public double getAreaPlana() 
 	{
-		return this.lado1 * this.lado2;
+		return super.getLado1() * super.getLado2();
 	}
 	
+	/**
+	 * Retorna o perimetro do quadrilátero (soma dos lados)
+	 * @return Perímetro do quadrilátero
+	 */
 	public double getPerimetroPlana() 
 	{
-		return 2 * this.lado1 + 2 * this.lado2;
+		return (2 * super.getLado1()) + (2 * super.getLado2());
 	}
 	
+	/**
+	 * Verifica se o quadrilátero é um quadrado (lados iguais), retornando true caso verdadeiro
+	 * @return Verdadeiro se for quadrado
+	 */
 	public boolean isQuadradoPlana() 
 	{
-		if (this.lado1 == this.lado2)
+		if (super.getLado1() == super.getLado2())
 		{
 			return true;
 		}
@@ -82,6 +61,10 @@ public class Quadrilatero
 		}
 	}
 	
+	/**
+	 * Verifica se o quadrilátero é um retângulo (lados diferentes), retornando true caso verdadeiro
+	 * @return Verdadeiro se for retângulo
+	 */
 	public boolean isRetanguloPlana() 
 	{
 		return ! this.isQuadradoPlana();
