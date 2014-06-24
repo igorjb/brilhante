@@ -11,8 +11,10 @@ public class TestandoConexaoJDBC {
 			Connection connection = new ConnectionFactory().getConnection();
 			System.out.println("Conectado, bem vindo ao Banco de Dados com Java!");
 			connection.close();
-		} catch (Exception e) {
-			
+		} 
+		catch (Exception e) 
+		{
+			throw new RuntimeException(e);
 		}
 		
 	}
