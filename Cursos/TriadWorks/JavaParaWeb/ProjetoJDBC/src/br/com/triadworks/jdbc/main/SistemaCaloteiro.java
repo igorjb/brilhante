@@ -9,7 +9,6 @@ public class SistemaCaloteiro {
 
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setNome("Alisson");
 		caloteiro.setEmail("alisson@caloteiro.com.br");
