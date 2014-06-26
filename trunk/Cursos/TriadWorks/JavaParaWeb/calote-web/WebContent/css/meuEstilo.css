@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+.linksVermelhos {
+	color: #FF9966;
+	font: arial,sans-serif bold; 
+}
+.fundoVerde {
+	background-color: #00FF00; 
+}
