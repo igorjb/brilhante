@@ -10,6 +10,7 @@
 <title>Lista de Caloteiros</title>
 </head>
 <body>
+	<c:import url="cabecalho.jsp"/>
 	Lista de Caloteiros: </br>
 	<table border="1">
 		<c:forEach var="caloteiro" items="${dao.lista}" varStatus="id">
@@ -43,6 +44,7 @@
 				<td></td>
 			</tr>
 		</c:forEach>
+		<c:import url="rodape.jsp"/>
 	</table>
 </body>
 </html>
