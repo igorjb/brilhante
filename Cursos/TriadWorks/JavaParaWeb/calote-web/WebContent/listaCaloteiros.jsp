@@ -29,7 +29,7 @@
 					<td>${caloteiro.devendo}</td>
 					</c:when>
 					<c:otherwise>
-						Devedor não preenchido
+						Devedor não preenchido.
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -37,7 +37,7 @@
 					<td><fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/></td>
 					</c:when>
 					<c:otherwise>
-						Data da Dívida não preenchida
+						Data da Dívida não preenchida.
 					</c:otherwise>
 				</c:choose>
 				<td></td>
