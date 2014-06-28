@@ -1,4 +1,4 @@
-package br.triadworks.jdbc.modelo;
+package br.com.triadworks.jdbc.modelo;
 
 import java.util.Calendar;
 
