@@ -1,10 +1,10 @@
-package br.triadworks.jdbc.main;
+package br.com.triadworks.jdbc.main;
 
 import java.util.Calendar;
 import java.util.List;
 
-import br.triadworks.jdbc.dao.CaloteiroDAO;
-import br.triadworks.jdbc.modelo.Caloteiro;
+import br.com.triadworks.jdbc.dao.CaloteiroDAO;
+import br.com.triadworks.jdbc.modelo.Caloteiro;
 
 public class SistemaCaloteiro {
 

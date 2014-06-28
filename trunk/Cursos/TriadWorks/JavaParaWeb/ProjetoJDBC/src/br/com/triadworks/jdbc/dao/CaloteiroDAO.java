@@ -1,4 +1,4 @@
-package br.triadworks.jdbc.dao;
+package br.com.triadworks.jdbc.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.triadworks.jdbc.ConnectionFactory;
-import br.triadworks.jdbc.modelo.Caloteiro;
+import br.com.triadworks.jdbc.modelo.Caloteiro;
 
 public class CaloteiroDAO {
 
