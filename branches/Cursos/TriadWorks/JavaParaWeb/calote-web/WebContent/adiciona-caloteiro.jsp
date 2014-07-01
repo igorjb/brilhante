@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+
+<%@ include file="/includes.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta />
 <title>Adiciona caloteiro</title>
 </head>
 <body>
 	<c:import url="cabecalho.jsp"/>
-	<form action="adicionaCaloteiro">
-		Nome: <input type="text" name="nome"/></br>
-		E-mail: <input type="text" name="email"/></br>
-		Devendo R$: <input type="text" name="devendo"/></br>
-		Data: <input type="text" name="dataDivida"/></br>
+	<form action="sistema" method="post">
+		<input type="hidden" name="logica" value="AdicionaCaloteiro"/>
+		<triadTag:campoTexto campoName="nome" label="Nome:" id="labelNome"/>
+		<triadTag:campoTexto campoName="email" label="Email:" id="labelEmail"/>
+		<triadTag:campoTexto campoName="devendo" label="Devendo:" id="labelDevendo"/>
+		<triadTag:campoTexto campoName="dataDivida" label="Data da Dívida" id="labelData"/>
 		
 		<input type="submit" value="Salvar"/>
 	</form>
