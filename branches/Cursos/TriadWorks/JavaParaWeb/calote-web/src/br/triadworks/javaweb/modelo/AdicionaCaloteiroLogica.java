@@ -1,30 +1,24 @@
-package br.triadworks.javaweb.servlets;
+package br.triadworks.javaweb.modelo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
-import java.util.Calendar;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-
-import java.text.SimpleDateFormat;
-
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
-import br.triadworks.javaweb.modelo.Caloteiro;
+import br.triadworks.javaweb.servlets.CaloteiroServletException;
 
-@WebServlet("/adicionaCaloteiro")
-public class AdicionaCaloteiro extends HttpServlet 
+public class AdicionaCaloteiroLogica implements Logica
 {
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException
-	{
+	@Override
+	public void executar (HttpServletRequest request, HttpServletResponse response) throws Exception{
 		PrintWriter out = response.getWriter();
 		
 		String nome = request.getParameter("nome");
@@ -56,5 +50,5 @@ public class AdicionaCaloteiro extends HttpServlet
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-adicionado.jsp");
 		rd.forward(request, response);
 	}
-
+	
 }
