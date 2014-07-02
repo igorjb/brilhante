@@ -15,8 +15,8 @@ public class CaloteiroDAO
 {
 	private Connection conexao;
 	
-	public CaloteiroDAO () {
-		this.conexao = new ConnectionFactory().getConnection();
+	public CaloteiroDAO (Connection connection) {
+		this.conexao = connection;
 	}
 	
 	public void adiciona(Caloteiro caloteiro) 
@@ -27,6 +27,7 @@ public class CaloteiroDAO
 		
 		try {
 			//preparando a insercao
+			
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			
 			//setando os valores
