@@ -15,6 +15,7 @@
 	<table border="1">
 		<c:forEach var="caloteiro" items="${lista}" varStatus="id">
 			<tr bgcolor="#${id.count % 2 == 0 ? 'ff0000' : 'ffffff' }">
+				<td><a href="/sistema?logica=CarraegarCaloteiro&id=${caloteiro.id}">Editar</a></td>
 				<td>${id.count}</td>
 				<td>${caloteiro.nome}</td>
 				<c:choose>
@@ -41,7 +42,7 @@
 						Data da Dívida não preenchida.
 					</c:otherwise>
 				</c:choose>
-				<td></td>
+	
 			</tr>
 		</c:forEach>
 	</table>
