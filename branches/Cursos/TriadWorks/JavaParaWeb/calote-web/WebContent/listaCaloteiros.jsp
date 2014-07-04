@@ -1,12 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 <title>Lista de Caloteiros</title>
 </head>
 <body>
@@ -23,7 +20,7 @@
 					<td><a href="mailto:${caloteiro.email}">${caloteiro.email}</a></td>
 					</c:when>
 					<c:otherwise>
-						E-mail n√£o preenchido.
+						E-mail n„o preenchido.
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -31,7 +28,7 @@
 					<td>${caloteiro.devendo}</td>
 					</c:when>
 					<c:otherwise>
-						Devedor n√£o preenchido.
+						Devedor n„o preenchido.
 					</c:otherwise>
 				</c:choose>
 				<c:choose>
@@ -39,7 +36,7 @@
 					<td><fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/></td>
 					</c:when>
 					<c:otherwise>
-						Data da D√≠vida n√£o preenchida.
+						Data da DÌvida n„o preenchida.
 					</c:otherwise>
 				</c:choose>
 	
