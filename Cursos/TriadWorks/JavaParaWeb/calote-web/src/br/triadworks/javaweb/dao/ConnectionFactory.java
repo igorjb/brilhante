@@ -10,6 +10,7 @@ public class ConnectionFactory
 	{
 		try 
 		{
+			DriverManager.registerDriver(new org.postgresql.Driver());
 			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/3WJavaWeb", "root", "root");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
