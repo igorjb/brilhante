@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Testa JavaScript</title>
+		<script type="text/javascript">
+			function meuAlerta()
+			{
+				var msg = document.getElementById("msg");
+				document.getElementById("msgResposta").textContent=msg.value;	
+			}
+			
+			function apagaInput() 
+			{
+				var In = document.getElementById("msg")
+				In.value= "";
+			}
+		</script>
+	</head>
+	<body>
+		<input id="msg" value="Digite seu nome" onfocus="apagaInput()"/>
+		<button>Clique aqui</button>
+		<div id="msgResposta"></div>
+	</body>
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/exemplo.js"></script>
+</html>
