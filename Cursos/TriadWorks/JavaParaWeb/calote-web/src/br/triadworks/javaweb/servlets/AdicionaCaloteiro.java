@@ -38,6 +38,7 @@ public class AdicionaCaloteiro extends HttpServlet
 			dataDividaConvertida.setTime(data);
 		} catch (ParseException e) {
 			out.println("Erro de conversao de data");
+			throw new CaloteiroServletException();
 		}
 		
 		//Montando o objeto Caloteiro
