@@ -1,4 +1,4 @@
-package br.com.triadworks.jdbc;
+package br.triadworks.javaweb.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
