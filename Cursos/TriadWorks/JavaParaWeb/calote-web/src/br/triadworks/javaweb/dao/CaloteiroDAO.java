@@ -84,6 +84,18 @@ public class CaloteiroDAO {
 		}
 	}
 	
+	public void exibe(Caloteiro caloteiro) 
+	{
+		String sql = "select * from caloteiro where id = ?";
+		
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			
+			stmt.setLong(1, caloteiro.getId());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	//Alterar Caloteiro
 	public void altera(Caloteiro caloteiro) 
 	{
