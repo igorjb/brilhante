@@ -5,10 +5,11 @@
 		<title>Lista de Caloteiros</title>
 	</head>
 	<body>
+		
 		<c:import url="cabecalho.jsp"/><br/>
 		Lista de Caloteiros: <br/>
 		<table border="1">
-			<c:forEach var="caloteiro" items="${dao.lista}" varStatus="id">
+			<c:forEach var="caloteiro" items="${lista}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'ff0000' : 'ffffff'}">
 					<td>${id.count}</td>
 					<c:choose>
