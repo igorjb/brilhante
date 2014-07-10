@@ -1,6 +1,7 @@
 package br.triadworks.javaweb.servlets;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,11 +18,14 @@ public class ListaCaloteiros extends HttpServlet{
 
 	protected void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		CaloteiroDAO dao = new CaloteiroDAO();
-		dao.getLista();
+		List<Caloteiro> lista = dao.getLista();
+		
+		request.setAttribute("lista", lista);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/listaCaloteiros.jsp");
-		rd.forward(request, response);
+		rd.forward(request,response);
 	}
 		
 }
