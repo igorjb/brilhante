@@ -1,5 +1,5 @@
 <%@ include file="/includes.jsp" %>
-<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>
+<!--<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>-->
 <html>
 	<head>
 		<title>Lista de Caloteiros</title>
@@ -9,8 +9,11 @@
 		<c:import url="cabecalho.jsp"/><br/>
 		Lista de Caloteiros: <br/>
 		<table border="1">
+			
 			<c:forEach var="caloteiro" items="${lista}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'ff0000' : 'ffffff'}">
+				<td><a href="/calote-web/sistema?logica=FormCaloteiro&id=${caloteiro.id}">Alterar</a></td>
+				<td><a href="/calote-web/exclui-caloteiro.jsp?id=${id.count}">Excluir</a></td>
 					<td>${id.count}</td>
 					<c:choose>
 						<c:when test="${not empty caloteiro.nome}">

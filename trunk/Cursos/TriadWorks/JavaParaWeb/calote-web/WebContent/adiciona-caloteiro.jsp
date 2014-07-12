@@ -13,7 +13,7 @@
 			<triadTag:campoTexto campoName="dataDivida" label="Data da Dívida" id="labelData"/>
 				<input type="hidden" name="logica" value="AdicionaCaloteiro"/>
 			<input type="submit" value="Salvar"/>
-			<a href="/calote-web/listaCaloteiros.jsp"><input type="button" value="Voltar"></input></a> 
+			<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar"></input></a> 
 		</form>
 		<c:import url="rodape.jsp"/>
 	</body>

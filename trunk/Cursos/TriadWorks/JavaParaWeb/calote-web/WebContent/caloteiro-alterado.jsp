@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title> Adicionar Caloteiro </title>
+		<title> Caloteiro Alterado </title>
 	</head>
 	<body>
-		Caloteiro ${param.nome} adicionado com sucesso!
+		Caloteiro ${param.nome} alterado com sucesso!
 		<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar"></input></a>
 	</body>
 </html>

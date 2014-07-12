@@ -1,9 +1,9 @@
 <html>
 	<head>
-		<title> Adicionar Caloteiro </title>
+		<title> Caloteiro Excluido</title>
 	</head>
 	<body>
-		Caloteiro ${param.nome} adicionado com sucesso!
+		Caloteiro de id ${param.id} excluido com sucesso!
 		<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar"></input></a>
 	</body>
 </html>

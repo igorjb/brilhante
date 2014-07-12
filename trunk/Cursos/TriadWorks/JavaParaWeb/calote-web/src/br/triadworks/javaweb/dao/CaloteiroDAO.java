@@ -57,6 +57,7 @@ public class CaloteiroDAO {
 			
 			while (rs.next()) 
 			{
+				Long id = rs.getLong("id");
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
 				int devendo = rs.getInt("devendo");
@@ -66,7 +67,7 @@ public class CaloteiroDAO {
 				
 				//criando o objeto caloteiro
 				caloteiro = new Caloteiro();
-				
+				caloteiro.setId(id);
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
 				caloteiro.setDevendo(new Integer(devendo));
@@ -84,14 +85,38 @@ public class CaloteiroDAO {
 		}
 	}
 	
-	public void exibe(Caloteiro caloteiro) 
+	public List<Caloteiro> exibe(Caloteiro caloteiro) 
 	{
-		String sql = "select * from caloteiro where id = ?";
-		
 		try {
-			PreparedStatement stmt = conexao.prepareStatement(sql);
+			PreparedStatement stmt = this.conexao.prepareStatement("select * from caloteiro where id = ?");
 			
+		    List<Caloteiro> caloteiros = new ArrayList<Caloteiro>();
 			stmt.setLong(1, caloteiro.getId());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) 
+			{
+				String nome = rs.getString("nome");
+				String email = rs.getString("email");
+				int devendo = rs.getInt("devendo");
+				
+				Calendar dataDivida = Calendar.getInstance();
+				dataDivida.setTime(rs.getDate("dataDivida"));
+				
+				//criando o objeto caloteiro
+				//caloteiro = new Caloteiro();
+				
+				caloteiro.setNome(nome);
+				caloteiro.setEmail(email);
+				caloteiro.setDevendo(new Integer(devendo));
+				caloteiro.setDataDivida(dataDivida);
+				
+				caloteiros.add(caloteiro);
+				
+			}
+			rs.close();
+			stmt.close();
+			return caloteiros;
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
