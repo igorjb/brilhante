@@ -25,8 +25,9 @@ public class ServletSistema extends HttpServlet{
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
 		String acao = request.getParameter("logica");
-		/*String nomeClasse = "br.triadworks.javaweb.modelo."+acao+"Logica";
+		String nomeClasse = "br.triadworks.javaweb.modelo."+acao+"Logica";
 
+		
 		try {
 			Class classe = Class.forName(nomeClasse);
 			Object obj = classe.newInstance();
@@ -43,14 +44,20 @@ public class ServletSistema extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		*/
+		//Para usar servlets
+		/*
 		if (acao.equals("ListaCaloteiros")){
 			new ListaCaloteiros().executa(request, response);
+		} else if (acao.equals("AdicionaCaloteiro")){
+			new AdicionaCaloteiro().executa(request, response);
+		}else if (acao.equals("FormCaloteiro")){
+			new EditaCaloteiro().executa(request, response);
 		} else if (acao.equals("AlteraCaloteiro")){
 			new AlteraCaloteiro().executa(request, response);
 		} else if (acao.equals("ExcluiCaloteiro")){
 			new ExcluiCaloteiro().executa(request, response);
 		}
+		*/
 	}
 
 }
