@@ -1,10 +1,12 @@
+<%@ include file="/includes.jsp" %>
 <html>
 	<head>
 		<title> Excluir Caloteiro </title>
 	</head>
 	<body>
-		
-		Deseja excluir caloteiro de id ${param.id}?
+		<c:forEach var="caloteiro" items="${caloteiro}" varStatus="id">
+			Deseja realmente excluir o(a) caloteiro(a) ${caloteiro.nome}?
+		</c:forEach>
 		<form action="sistema" method="post">
 			<input type="hidden" name="id" value="${param.id}"/>
 				<input type="hidden" name="logica" value="ExcluiCaloteiro"/>
