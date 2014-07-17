@@ -84,7 +84,7 @@ public class CaloteiroDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+	//Lista caloteiro por id
 	public List<Caloteiro> exibe(Caloteiro caloteiro) 
 	{
 		try {
@@ -93,6 +93,7 @@ public class CaloteiroDAO {
 		    List<Caloteiro> caloteiros = new ArrayList<Caloteiro>();
 			stmt.setLong(1, caloteiro.getId());
 			ResultSet rs = stmt.executeQuery();
+		
 			while (rs.next()) 
 			{
 				String nome = rs.getString("nome");
@@ -116,6 +117,21 @@ public class CaloteiroDAO {
 			rs.close();
 			stmt.close();
 			return caloteiros;
+			
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	//Quantidade de Registros
+	public int contador()
+	{
+		String sql = "select count(*) As count from caloteiro";
+		
+		try {
+			PreparedStatement stmt = conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			rs.next();
+			return rs.getInt("count");
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

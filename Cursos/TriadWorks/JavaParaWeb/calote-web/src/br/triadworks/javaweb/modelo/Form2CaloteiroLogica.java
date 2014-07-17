@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 
-public class ListaCaloteirosLogica implements Logica{
+public class Form2CaloteiroLogica implements Logica
+{
 
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String id = request.getParameter("id");
+		Caloteiro caloteiro = new Caloteiro();
+		caloteiro.setId(Long.valueOf(id));
+		
 		CaloteiroDAO dao = new CaloteiroDAO();
-		List<Caloteiro> lista = dao.getLista();
-		int count = dao.contador();
-	
-		request.setAttribute("lista", lista);
-		request.setAttribute("contador", count);
+		List<Caloteiro> calot = dao.exibe(caloteiro);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaCaloteiros.jsp");
-		rd.forward(request,response);
+		request.setAttribute("caloteiro", calot);
 		
+		RequestDispatcher rd = request.getRequestDispatcher("/exclui-caloteiro.jsp");
+		rd.forward(request, response);
 	}
-	
-
 }
