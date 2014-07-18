@@ -3,6 +3,7 @@ package br.triadworks.javaweb.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -50,7 +51,8 @@ public class AdicionaCaloteiro extends HttpServlet
 		caloteiro.setDataDivida(dataDividaConvertida);
 		
 		//Inserindo no banco com o CaloteiroDAO
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection conexao = (Connection) request.getAttribute("conexao");
+		CaloteiroDAO dao = new CaloteiroDAO(conexao);
 		dao.adiciona(caloteiro);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-adicionado.jsp");

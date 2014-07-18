@@ -15,12 +15,19 @@ import br.triadworks.javaweb.servlets.CaloteiroServletException;
 public class CaloteiroDAO {
 
 	private Connection conexao;
-	
+	public CaloteiroDAO() {
+		
+	}
+	/*
 	public CaloteiroDAO() 
 	{
 		this.conexao = new ConnectionFactory().getConnection();
 	}
-	
+	*/
+	public CaloteiroDAO(Connection conexao) 
+	{
+		this.conexao = conexao;
+	}
 	//Inserir Caloteiro
 	public void adiciona(Caloteiro caloteiro) 
 	{

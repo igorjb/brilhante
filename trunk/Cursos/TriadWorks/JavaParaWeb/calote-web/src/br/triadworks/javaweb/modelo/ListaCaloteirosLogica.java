@@ -1,6 +1,7 @@
 package br.triadworks.javaweb.modelo;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,7 +16,8 @@ public class ListaCaloteirosLogica implements Logica{
 	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection conexao = (Connection) request.getAttribute("conexao");
+		CaloteiroDAO dao = new CaloteiroDAO(conexao);
 		List<Caloteiro> lista = dao.getLista();
 		int count = dao.contador();
 	
