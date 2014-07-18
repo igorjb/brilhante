@@ -2,6 +2,7 @@ package br.triadworks.javaweb.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,7 +30,8 @@ public class ExcluiCaloteiro extends HttpServlet
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setId(Long.valueOf(id));
 		
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection conexao = (Connection) request.getAttribute("conexao");
+		CaloteiroDAO dao = new CaloteiroDAO(conexao);
 		dao.deleta(caloteiro);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-excluido.jsp");

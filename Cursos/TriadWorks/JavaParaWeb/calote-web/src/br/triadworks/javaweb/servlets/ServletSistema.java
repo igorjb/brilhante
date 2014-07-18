@@ -34,14 +34,11 @@ public class ServletSistema extends HttpServlet{
 			Logica logica = (Logica) obj;
 			logica.executa(request, response);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new CaloteiroServletException(e.getMessage());
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new CaloteiroServletException(e.getMessage());
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new CaloteiroServletException(e.getMessage());
 		}
 		
 		//Para usar servlets

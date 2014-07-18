@@ -1,6 +1,7 @@
 package br.triadworks.javaweb.modelo;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +21,8 @@ public class ExcluiCaloteiroLogica implements Logica{
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setId(Long.valueOf(id));
 		
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection conexao = (Connection) request.getAttribute("conexao");
+		CaloteiroDAO dao = new CaloteiroDAO(conexao);
 		dao.deleta(caloteiro);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-excluido.jsp");

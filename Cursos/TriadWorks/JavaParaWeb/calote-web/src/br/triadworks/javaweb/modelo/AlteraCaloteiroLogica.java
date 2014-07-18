@@ -2,6 +2,7 @@ package br.triadworks.javaweb.modelo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,7 +46,8 @@ public class AlteraCaloteiroLogica implements Logica{
 		caloteiro.setDevendo(new Integer(devendo));
 		caloteiro.setDataDivida(dataDividaConvertida);
 		
-		CaloteiroDAO dao = new CaloteiroDAO();
+		Connection conexao = (Connection) request.getAttribute("conexao");
+		CaloteiroDAO dao = new CaloteiroDAO(conexao);
 		dao.altera(caloteiro);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-alterado.jsp");
