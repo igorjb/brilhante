@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Testa JavaScript</title>
+		<script type="text/javascript">
+			function meuAlerta()
+			{
+				var msg = document.getElementById("msg");
+				document.getElementById("msgResposta").textContent=msg.value;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input id="msg" value=""/>
+		<button onclick="meuAlerta()">Clique Aqui</button>
+		<div id="msgResposta"></div>
+	</body>
+</html>
