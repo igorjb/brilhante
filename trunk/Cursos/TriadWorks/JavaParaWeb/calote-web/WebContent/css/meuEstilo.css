@@ -12,3 +12,29 @@ body {
 	font-weight: bold; 
 	font-family: arial;
 }
+
+#button{
+	font:bold 16px Verdana, Geneva, sans-serif;
+	font-style:normal;
+	color:#ffffff;
+	background-color:#FFCC66;
+	border:0px solid #ffffff;
+	text-shadow:2px 3px 5px #222222;
+	box-shadow:2px 2px 5px #000000;
+	-moz-box-shadow:2px 2px 5px #000000;
+	-webkit-box-shadow:2px 2px 5px #000000;
+	border-radius:10px 10px 10px 10px;
+	-moz-border-radius:10px 10px 10px 10px;
+	-webkit-border-radius:10px 10px 10px 10px;
+	width:45px;
+	padding:10px 40px;
+	cursor:pointer;
+	margin:3 auto;
+}
+.button:active{
+	cursor:pointer;
+	position:relative;
+	top:2px;
+}
+	
+}

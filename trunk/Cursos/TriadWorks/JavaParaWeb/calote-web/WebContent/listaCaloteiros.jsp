@@ -2,6 +2,7 @@
 <!--<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>-->
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/meuEstilo.css">
 		<title>Lista de Caloteiros</title>
 	</head>
 	<body>
@@ -50,7 +51,7 @@
 			</c:forEach>
 		</table>
 		Total de Registros: ${contador}<br/>
-		<a href="/calote-web/adiciona-caloteiro.jsp"><input type="button" value="Adiciona"/></a><br/>
+		<a href="/calote-web/adiciona-caloteiro.jsp"><input type="button" value="NOVO" id="button"/></a><br/>
 		<c:import url="rodape.jsp"/>
 	</body>
 </html>
