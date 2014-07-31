@@ -2,6 +2,7 @@
 <!--<jsp:useBean id="dao" class="br.triadworks.javaweb.dao.CaloteiroDAO"/>-->
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/meuEstilo.css">
 		<title>Editar Caloteiro</title>
 	</head>
 	<body>
@@ -18,8 +19,13 @@
 					Devendo: <input type="text" name="devendo" value="${caloteiro.devendo}"><br/>
 					Data da Dívida: <input type="text" name="dataDivida" value="<fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/>"><br/> 
 						<input type="hidden" name="logica" value="AlteraCaloteiro"/>
-					<input type="submit" value="Salvar"/>
-					<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar"></input></a> 
+					<br/>
+					<div align="left">
+						<input type="submit" value="Salvar" id="button"/>
+						<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar" id="button"></input></a>
+					</div>
+					
+					 
 				</form>
 				
 			</c:forEach>
