@@ -3,4 +3,4 @@
 <%@ attribute name="campoName" required="true" %>
 
 <label for="${id}">${label}</label>
-<input type="text" name="${campoName}" id="${id}"/><br/>
+<input type="text" name="${campoName}" id="${id}" size="50"/><br/>
