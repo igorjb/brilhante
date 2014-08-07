@@ -14,26 +14,24 @@
         				<span>Edite os dados do caloteiro.</span>
     				</h1>
 					<label>
-				    	<input type="hidden" name="id" value="${caloteiro.id}">
-				        <span>Nome: </span>
-				        <input type="text" name="nome" value="${caloteiro.nome}" size="50">
+				    	<triadTag:campoTexto campoName="id" margin="10" id="labelId" type="hidden" value="${caloteiro.id}"/>
+				        <triadTag:campoTexto campoName="nome" type="text" label="Nome:" id="labelNome" margin="60" value="${caloteiro.nome}"/>
 				    </label>
 				    <br/>
 				    <label>
-				        <span>Email: </span>
-				        <input type="text" name="email" value="${caloteiro.email}" size="50">
+				        <triadTag:campoTexto campoName="email" type="text" label="Email:" id="labelEmail" margin="61" value="${caloteiro.email}"/>
 				    </label>
 				    <br/>
 				    <label>
-				        <span>Devendo: </span>
-				        <input type="text" name="devendo" value="${caloteiro.devendo}" size="50">
+				        <triadTag:campoTexto campoName="devendo" type="text" label="Devendo:" id="labelDevendo" margin="43" value="${caloteiro.devendo}"/>
 				    </label>
 				    <br/>
 				     <label>
 				        <span>Data da Dívida: </span>
-				        <input type="text" name="dataDivida" size="50" value="<fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/>">
+				        <input type="text" name="dataDivida" size="41" style="margin-left:111" value="<fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/>">
 				    	<input type="hidden" name="logica" value="AlteraCaloteiro"/>
 				    </label>
+				     
 				    <br/>    
 				     <label>
 				        <span>&nbsp;</span>

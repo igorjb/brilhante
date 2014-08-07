@@ -12,19 +12,19 @@
         <span>Digite os dados do caloteiro.</span>
     </h1>
     <label>
-        <span><triadTag:campoTexto campoName="nome" label="Nome:" id="labelNome"/></span>
+        <triadTag:campoTexto campoName="nome" type="text" label="Nome:" id="labelNome" margin="60"/>
     </label>
     <br/>
     <label>
-        <span><triadTag:campoTexto campoName="email" label="Email:" id="labelEmail"/></span>
+        <triadTag:campoTexto campoName="email" type="text" label="Email:" id="labelEmail" margin="61"/>
     </label>
     <br/>
     <label>
-        <span><triadTag:campoTexto campoName="devendo" label="Devendo:" id="labelDevendo"/></span>
+        <triadTag:campoTexto campoName="devendo" type="text" label="Devendo:" id="labelDevendo" margin="43"/>
     </label>
     <br/>
      <label>
-        <span><triadTag:campoTexto campoName="dataDivida" label="Data da Dívida:" id="labelData"/></span>
+        <triadTag:campoTexto campoName="dataDivida" type="text" label="Data da Dívida:" id="labelData" margin="10"/>
     </label>
     <br/>    
      <label>
