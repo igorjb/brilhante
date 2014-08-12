@@ -9,11 +9,21 @@
 		<c:import url="cabecalho.jsp"/><br>
 		<b> CALOTEIROS DA WEB</b>
 		<table border="1">
-				
+			<tr>
+				<td><b>Editar</b></td>
+				<td><b>Excluir</b></td>
+				<td><b>ID</b></td>
+				<td><b>Caloteiro</b></td>
+				<td><b>Email</b></td>
+				<td><b>Devendo</b></td>
+				<td><b>Data da Dívida</b></td>
+			</tr>	
 			<c:forEach var="caloteiro" items="${lista}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'FFCC66' : 'FFFFCC'}">
-				<td><a href="/calote-web/sistema?logica=FormCaloteiro&id=${caloteiro.id}"><img alt="editar" width="25" height="25" src="imagens/lapis.png"/></a></td>
-				<td><a href="/calote-web/sistema?logica=Form2Caloteiro&id=${caloteiro.id}"><img alt="editar" width="25" height="25" src="imagens/lixeira.png"/></a></td>
+				<td><div align="center"><a href="/calote-web/sistema?logica=FormCaloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
+																												height="25" src="imagens/lapis.png"/></a></div></td>
+				<td><div align="center"><a href="/calote-web/sistema?logica=Form2Caloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
+																													height="25" src="imagens/lixeira.png"/></a></div></td>
 					<td>${id.count}</td>
 					<c:choose>
 						<c:when test="${not empty caloteiro.nome}">
@@ -33,7 +43,7 @@
 					</c:choose>
 					<c:choose>
 						<c:when test="${not empty caloteiro.devendo}">
-							<td>${caloteiro.devendo}</td>
+							<td><div align="center">${caloteiro.devendo}</div></td>
 						</c:when>
 						<c:otherwise>
 							<td>Valor da dívida não preenchida.</td>
@@ -41,7 +51,7 @@
 					</c:choose>
 					<c:choose>
 						<c:when test="${not empty caloteiro.dataDivida}">
-							<td><fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/></td>
+							<td><div align="center"><fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/></div></td>
 						</c:when>
 						<c:otherwise>
 							<td>Data da dívida não preenchida.</td>
@@ -50,7 +60,8 @@
 				</tr>
 			</c:forEach>
 		</table>
-		Total de Registros: ${contador}<br/>
+		<div>Total de Registros: ${contador}<br/></div>
+		
 		<a href="/calote-web/adiciona-caloteiro.jsp"><input type="button" value="NOVO" id="button"/></a><br/>
 		<c:import url="rodape.jsp"/>
 	</body>
