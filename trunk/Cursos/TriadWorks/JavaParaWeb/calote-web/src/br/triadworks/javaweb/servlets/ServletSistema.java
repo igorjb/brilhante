@@ -41,8 +41,9 @@ public class ServletSistema extends HttpServlet{
 			throw new CaloteiroServletException(e.getMessage());
 		}
 		
-		//Para usar servlets
 		/*
+		//Para usar servlets
+		
 		if (acao.equals("ListaCaloteiros")){
 			new ListaCaloteiros().executa(request, response);
 		} else if (acao.equals("AdicionaCaloteiro")){
