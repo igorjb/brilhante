@@ -1,4 +1,4 @@
-<%@ attribute name="id" required="true" %>
+<%@ attribute name="id" %>
 <%@ attribute name="label" %>
 <%@ attribute name="campoName" required="true" %>
 <%@ attribute name="margin" required="true" %>

@@ -42,7 +42,7 @@ public class CaloteiroDAO {
 			//setando os valores
 			pstmt.setString(1, caloteiro.getNome());
 			pstmt.setString(2, caloteiro.getEmail());
-			pstmt.setInt(3, caloteiro.getDevendo());
+			pstmt.setFloat(3, caloteiro.getDevendo());
 			pstmt.setDate(4, new Date(caloteiro.getDataDivida().getTimeInMillis()));
 			
 			pstmt.execute();
@@ -155,7 +155,7 @@ public class CaloteiroDAO {
 			
 			stmt.setString(1, caloteiro.getNome());
 			stmt.setString(2, caloteiro.getEmail());
-			stmt.setInt(3, caloteiro.getDevendo());
+			stmt.setFloat(3, caloteiro.getDevendo());
 			stmt.setDate(4, new Date(caloteiro.getDataDivida().getTimeInMillis()));
 			stmt.setLong(5, caloteiro.getId());
 			
