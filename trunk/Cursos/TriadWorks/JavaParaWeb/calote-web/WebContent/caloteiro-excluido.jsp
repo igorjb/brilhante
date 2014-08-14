@@ -1,9 +1,24 @@
+<%@ include file="/includes.jsp" %>
 <html>
 	<head>
-		<title> Caloteiro Excluido</title>
+		<link rel="stylesheet" type="text/css" href="css/meuEstilo.css">
+		<title> Caloteiro Excluido </title>
 	</head>
 	<body>
-		Caloteiro de id ${param.id} excluido com sucesso!
-		<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar"></input></a>
+		<c:import url="cabecalho.jsp"/><br/>
+		<form action="sistema" method="post" class="elegant-aero">
+			<h1>Caloteiro Excluído:
+        		<span>Dados do caloteiro excluído.</span>
+    		</h1>
+    		<label>
+    			Caloteiro ${param.nome} excluído com sucesso!
+    		</label>
+    		</br>
+			<label>
+				<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="Voltar" id="button"></a>
+			</label>
+			<br/>
+		</form>			
+		<c:import url="rodape.jsp"/>
 	</body>
 </html>

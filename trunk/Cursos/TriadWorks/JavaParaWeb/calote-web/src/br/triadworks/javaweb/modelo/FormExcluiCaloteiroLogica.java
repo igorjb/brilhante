@@ -6,14 +6,15 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.triadworks.javaweb.dao.CaloteiroDAO;
 
-public class FormCaloteiroLogica implements Logica{
+public class FormExcluiCaloteiroLogica implements Logica
+{
 
+	@Override
 	public void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
@@ -26,7 +27,7 @@ public class FormCaloteiroLogica implements Logica{
 		
 		request.setAttribute("caloteiro", calot);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/form-caloteiro.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/exclui-caloteiro.jsp");
 		rd.forward(request, response);
 	}
 }

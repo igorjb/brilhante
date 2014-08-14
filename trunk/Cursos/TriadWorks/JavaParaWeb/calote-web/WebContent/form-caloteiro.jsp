@@ -16,7 +16,7 @@
 				    	<triadTag:campoTexto campoName="id" margin="10" id="labelId" type="hidden" value="${caloteiro.id}"/>
 				        <triadTag:campoTexto campoName="nome" type="text" label="Nome:" id="labelNome" margin="60" value="${caloteiro.nome}"/>
 				        <triadTag:campoTexto campoName="email" type="text" label="Email:" id="labelEmail" margin="61" value="${caloteiro.email}"/>
-				        <triadTag:campoTexto campoName="devendo" type="text" label="Devendo:" id="labelDevendo" margin="42" value="${caloteiro.devendo}"/>
+				        <triadTag:campoTexto campoName="devendo" type="text" label="Devendo (R$):" id="labelDevendo" margin="16" value="${caloteiro.devendo}"/>
 				     <label>
 				        <span>Data da Dívida: </span>
 				        <input type="text" name="dataDivida" size="48" style="margin-left:112" value="<fmt:formatDate value="${caloteiro.dataDivida.time}" pattern="dd/MM/yyyy"/>">

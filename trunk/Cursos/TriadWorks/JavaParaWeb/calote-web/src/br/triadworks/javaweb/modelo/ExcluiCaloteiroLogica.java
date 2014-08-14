@@ -2,6 +2,7 @@ package br.triadworks.javaweb.modelo;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +18,17 @@ public class ExcluiCaloteiroLogica implements Logica{
 			throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		
+		String nome = request.getParameter("nome");
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setId(Long.valueOf(id));
+		caloteiro.setNome(nome);
 		
 		Connection conexao = (Connection) request.getAttribute("conexao");
 		CaloteiroDAO dao = new CaloteiroDAO(conexao);
+		List<Caloteiro> calot = dao.exibe(caloteiro);
+		
+		request.setAttribute("caloteiro", calot);
+		
 		dao.deleta(caloteiro);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/caloteiro-excluido.jsp");

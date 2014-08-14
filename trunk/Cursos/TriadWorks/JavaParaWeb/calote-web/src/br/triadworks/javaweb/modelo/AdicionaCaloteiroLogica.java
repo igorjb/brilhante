@@ -42,7 +42,7 @@ public class AdicionaCaloteiroLogica implements Logica
 		Caloteiro caloteiro = new Caloteiro();
 		caloteiro.setNome(nome);
 		caloteiro.setEmail(email);
-		caloteiro.setDevendo(new Integer(devendo));
+		caloteiro.setDevendo(Float.parseFloat(devendo));
 		caloteiro.setDataDivida(dataDividaConvertida);
 		
 		//Inserindo no banco com o CaloteiroDAO

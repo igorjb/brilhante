@@ -20,9 +20,9 @@
 			</tr>	
 			<c:forEach var="caloteiro" items="${lista}" varStatus="id">
 				<tr bgcolor="#${id.count % 2 == 0 ? 'FFCC66' : 'FFFFCC'}">
-				<td><div align="center"><a href="/calote-web/sistema?logica=FormCaloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
+				<td><div align="center"><a href="/calote-web/sistema?logica=FormEditaCaloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
 																												height="25" src="imagens/lapis.png"/></a></div></td>
-				<td><div align="center"><a href="/calote-web/sistema?logica=Form2Caloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
+				<td><div align="center"><a href="/calote-web/sistema?logica=FormExcluiCaloteiro&id=${caloteiro.id}"><img alt="editar" width="25" 
 																													height="25" src="imagens/lixeira.png"/></a></div></td>
 					<td>${id.count}</td>
 					<c:choose>
@@ -62,7 +62,7 @@
 		</table>
 		<div>Total de Registros: ${contador}<br/></div>
 		
-		<a href="/calote-web/adiciona-caloteiro.jsp"><input type="button" value="NOVO" id="button"/></a><br/>
+		<a href="/calote-web/sistema?logica=FormAdicionaCaloteiro"><input type="button" value="NOVO" id="button"/></a><br/>
 		<c:import url="rodape.jsp"/>
 	</body>
 </html>

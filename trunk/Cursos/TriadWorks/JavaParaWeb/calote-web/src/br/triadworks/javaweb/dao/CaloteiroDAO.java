@@ -56,7 +56,7 @@ public class CaloteiroDAO {
 	public List<Caloteiro> getLista() 
 	{
 		try {
-			PreparedStatement stmt = this.conexao.prepareStatement("select * from caloteiro");
+			PreparedStatement stmt = this.conexao.prepareStatement("select * from caloteiro order by nome");
 			
 		    List<Caloteiro> caloteiros = new ArrayList<Caloteiro>();
 			Caloteiro caloteiro = null;
@@ -67,7 +67,7 @@ public class CaloteiroDAO {
 				Long id = rs.getLong("id");
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
-				int devendo = rs.getInt("devendo");
+				float devendo = rs.getFloat("devendo");
 				
 				Calendar dataDivida = Calendar.getInstance();
 				dataDivida.setTime(rs.getDate("dataDivida"));
@@ -77,7 +77,7 @@ public class CaloteiroDAO {
 				caloteiro.setId(id);
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
-				caloteiro.setDevendo(new Integer(devendo));
+				caloteiro.setDevendo(devendo);
 				caloteiro.setDataDivida(dataDivida);
 				
 				caloteiros.add(caloteiro);
@@ -105,7 +105,7 @@ public class CaloteiroDAO {
 			{
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
-				int devendo = rs.getInt("devendo");
+				float devendo = rs.getFloat("devendo");
 				
 				Calendar dataDivida = Calendar.getInstance();
 				dataDivida.setTime(rs.getDate("dataDivida"));
@@ -115,7 +115,7 @@ public class CaloteiroDAO {
 				
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
-				caloteiro.setDevendo(new Integer(devendo));
+				caloteiro.setDevendo(devendo);
 				caloteiro.setDataDivida(dataDivida);
 				
 				caloteiros.add(caloteiro);

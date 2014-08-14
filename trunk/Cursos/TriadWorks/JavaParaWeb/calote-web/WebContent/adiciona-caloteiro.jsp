@@ -12,10 +12,10 @@
 			<span>Adicione os dados do caloteiro.</span>
 		</h1>
 		
-			<triadTag:campoTexto type="text" margin="10" campoName="nome" label="Nome:" id="labelNome"/>
-			<triadTag:campoTexto type="text" margin="10" campoName="email" label="Email:" id="labelEmail"/>
-			<triadTag:campoTexto type="text" margin="10" campoName="devendo" label="Devendo:" id="labelDevendo"/>
-			<triadTag:campoTexto type="text" margin="10" campoName="dataDivida" label="Data da Dívida" id="labelData"/>
+			<triadTag:campoTexto type="text" margin="60" campoName="nome" label="Nome:" id="labelNome"/>
+			<triadTag:campoTexto type="text" margin="61" campoName="email" label="Email:" id="labelEmail"/>
+			<triadTag:campoTexto type="text" margin="16" campoName="devendo" label="Devendo (R$):" id="labelDevendo"/>
+			<triadTag:campoTexto type="text" margin="10" campoName="dataDivida" label="Data da Dívida:" id="labelData"/>
 				<input type="hidden" name="logica" value="AdicionaCaloteiro"/>
 			<br/>
 			<input type="submit" value="Salvar" id="button"/>
