@@ -45,7 +45,7 @@ public class AlteraCaloteiro extends HttpServlet
 		caloteiro.setId(Long.valueOf(id));
 		caloteiro.setNome(nome);
 		caloteiro.setEmail(email);
-		caloteiro.setDevendo(new Integer(devendo));
+		caloteiro.setDevendo(Float.parseFloat(devendo));
 		caloteiro.setDataDivida(dataDividaConvertida);
 		
 		Connection conexao = (Connection) request.getAttribute("conexao");

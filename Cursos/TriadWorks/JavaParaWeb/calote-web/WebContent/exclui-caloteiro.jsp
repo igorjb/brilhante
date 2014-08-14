@@ -14,13 +14,16 @@
     		<label>
     			<span>Deseja realmente excluir o(a) caloteiro(a) ${caloteiro.nome}?</span>
     		</label>
-			</c:forEach>
 			<br/>
 			<label>
 				<input type="hidden" name="id" value="${param.id}"/>
-					<input type="hidden" name="logica" value="ExcluiCaloteiro"/>
+				<input type="hidden" name="nome" value="${caloteiro.nome}"/>
+			</label>
+			</c:forEach>
+			<label>
+				<input type="hidden" name="logica" value="ExcluiCaloteiro"/>
 				<input type="submit" value="SIM" id="button"/>
-				<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="NÃO" id="button"></input></a>
+				<a href="/calote-web/sistema?logica=ListaCaloteiros"><input type="button" value="NÃO" id="button"/></a>
 			</label>
 		</form>
 		<c:import url="rodape.jsp"/>
