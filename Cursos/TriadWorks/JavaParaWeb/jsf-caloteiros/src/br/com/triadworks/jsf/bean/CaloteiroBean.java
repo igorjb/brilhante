@@ -18,18 +18,20 @@ public class CaloteiroBean {
 		return caloteiro;
 	}
 	
-	public void adiciona()
+	public void adiciona() throws ParseException
 	{
 		System.out.println("Gravando caloteiro no banco de dados...");
 		System.out.println("Nome:" +this.caloteiro.getNome());
 		System.out.println("Email:" +this.caloteiro.getEmail());
 		System.out.println("Devendo:"+this.caloteiro.getDevendo());
-		System.out.println("Data Dívida:"+this.caloteiro.getDataDivida());
-		/*Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(data);
+		String data = this.caloteiro.getDataDivida();
+		System.out.println("Data Dívida:"+data);
+		
+		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(data);
 		Calendar dataDividaConvertida = null;
 		dataDividaConvertida = Calendar.getInstance();
-		dataDividaConvertida.setTime(data);
-		*/
+		dataDividaConvertida.setTime(date);
+		
 		this.caloteiro = new Caloteiro();
 	}
 }
