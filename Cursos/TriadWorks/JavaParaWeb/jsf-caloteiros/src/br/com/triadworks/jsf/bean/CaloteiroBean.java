@@ -7,6 +7,7 @@ import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.triadworks.jsf.dao.CaloteiroDAO;
 import br.triadworks.jsf.modelo.Caloteiro;
 
 @ManagedBean
@@ -23,14 +24,11 @@ public class CaloteiroBean {
 		System.out.println("Gravando caloteiro no banco de dados...");
 		System.out.println("Nome:" +this.caloteiro.getNome());
 		System.out.println("Email:" +this.caloteiro.getEmail());
-		System.out.println("Devendo:"+this.caloteiro.getDevendo());
-		String data = this.caloteiro.getDataDivida();
-		System.out.println("Data Dívida:"+data);
+		//System.out.println("Devendo:"+this.caloteiro.getDevendo());
 		
-		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(data);
-		Calendar dataDividaConvertida = null;
-		dataDividaConvertida = Calendar.getInstance();
-		dataDividaConvertida.setTime(date);
+		CaloteiroDAO dao = new CaloteiroDAO();
+		dao.adiciona(caloteiro);
+		
 		
 		this.caloteiro = new Caloteiro();
 	}
