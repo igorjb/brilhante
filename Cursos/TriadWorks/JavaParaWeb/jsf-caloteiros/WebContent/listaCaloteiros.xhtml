@@ -23,9 +23,11 @@
 			</h:column>
 			<h:column>
 				<f:facet name="dataDivida">Data Dívida</f:facet>
-				#{caloteiro.dataDivida}
+				<h:outputText value="#{caloteiro.dataDivida}">  
+    				<f:convertDateTime pattern="dd/MM/yyyy"/>  
+  				</h:outputText>  
 			</h:column>
 		</h:dataTable>
 	</h:body>	
-
+	<a href="adicionaCaloteiro.xhtml">Adiciona</a>
 </html>

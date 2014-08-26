@@ -43,24 +43,17 @@ public class CaloteiroDAO {
 			//preparando a insercao
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			
-			String dataDivida = caloteiro.getDataDivida();
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");  
-		    Date data = new Date(format.parse(dataDivida).getTime());  
-		    
 			//setando os valores
 			pstmt.setString(1, caloteiro.getNome());
 			pstmt.setString(2, caloteiro.getEmail());
 			pstmt.setFloat(3, caloteiro.getDevendo());
-			pstmt.setDate(4, data);
+			pstmt.setDate(4, (Date) caloteiro.getDataDivida());
 			
 			pstmt.execute();
 			pstmt.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 	}
 	
 	//Listar Caloteiros
@@ -79,7 +72,7 @@ public class CaloteiroDAO {
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
 				float devendo = rs.getFloat("devendo");
-				String dataDivida = rs.getString("dataDivida");
+				Date dataDivida = rs.getDate("dataDivida");
 				
 				
 				//criando o objeto caloteiro
