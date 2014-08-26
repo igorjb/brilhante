@@ -79,9 +79,8 @@ public class CaloteiroDAO {
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
 				float devendo = rs.getFloat("devendo");
+				String dataDivida = rs.getString("dataDivida");
 				
-				Calendar dataDivida = Calendar.getInstance();
-				dataDivida.setTime(rs.getDate("dataDivida"));
 				
 				//criando o objeto caloteiro
 				caloteiro = new Caloteiro();
@@ -89,7 +88,7 @@ public class CaloteiroDAO {
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
 				caloteiro.setDevendo(devendo);
-				//caloteiro.setDataDivida(dataDivida);
+				caloteiro.setDataDivida(dataDivida);
 				
 				caloteiros.add(caloteiro);
 				
