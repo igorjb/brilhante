@@ -8,7 +8,7 @@ public class Caloteiro {
 	private String nome;
 	private String email;
 	private Float devendo;
-	private Calendar dataDivida;
+	private String dataDivida;
 	
 	public Long getId() {
 		return id;
@@ -29,10 +29,10 @@ public class Caloteiro {
 		this.email = email;
 	}
 	
-	public Calendar getDataDivida() {
+	public String getDataDivida() {
 		return dataDivida;
 	}
-	public void setDataDivida(Calendar dataDivida) {
+	public void setDataDivida(String dataDivida) {
 		this.dataDivida = dataDivida;
 	}
 	

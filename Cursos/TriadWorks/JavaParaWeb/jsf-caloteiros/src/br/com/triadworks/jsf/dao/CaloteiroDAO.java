@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -14,21 +16,24 @@ import br.triadworks.jsf.modelo.Caloteiro;
 public class CaloteiroDAO {
 
 	private Connection conexao;
+	/*
 	public CaloteiroDAO() {
 		
 	}
-	/*
+	*/
 	public CaloteiroDAO() 
 	{
 		this.conexao = new ConnectionFactory().getConnection();
 	}
-	*/
+	
+	/*
 	public CaloteiroDAO(Connection conexao) 
 	{
 		this.conexao = conexao;
 	}
+	*/
 	//Inserir Caloteiro
-	public void adiciona(Caloteiro caloteiro) 
+	public void adiciona(Caloteiro caloteiro)
 	{
 		String sql = "insert into caloteiro " +
 					"(nome, email, devendo, dataDivida) " +
@@ -38,16 +43,23 @@ public class CaloteiroDAO {
 			//preparando a insercao
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			
+			String dataDivida = caloteiro.getDataDivida();
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");  
+		    Date data = new Date(format.parse(dataDivida).getTime());  
+		    
 			//setando os valores
 			pstmt.setString(1, caloteiro.getNome());
 			pstmt.setString(2, caloteiro.getEmail());
 			pstmt.setFloat(3, caloteiro.getDevendo());
-			//pstmt.setDate(4, new Date(caloteiro.getDataDivida().getTimeInMillis()));
+			pstmt.setDate(4, data);
 			
 			pstmt.execute();
 			pstmt.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
@@ -77,7 +89,7 @@ public class CaloteiroDAO {
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
 				caloteiro.setDevendo(devendo);
-				caloteiro.setDataDivida(dataDivida);
+				//caloteiro.setDataDivida(dataDivida);
 				
 				caloteiros.add(caloteiro);
 				
@@ -115,7 +127,7 @@ public class CaloteiroDAO {
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
 				caloteiro.setDevendo(devendo);
-				caloteiro.setDataDivida(dataDivida);
+				//caloteiro.setDataDivida(dataDivida);
 				
 				caloteiros.add(caloteiro);
 				
@@ -155,7 +167,7 @@ public class CaloteiroDAO {
 			stmt.setString(1, caloteiro.getNome());
 			stmt.setString(2, caloteiro.getEmail());
 			stmt.setFloat(3, caloteiro.getDevendo());
-			stmt.setDate(4, new Date(caloteiro.getDataDivida().getTimeInMillis()));
+			//stmt.setDate(4, new Date(caloteiro.getDataDivida().getTimeInMillis()));
 			stmt.setLong(5, caloteiro.getId());
 			
 			stmt.execute();

@@ -1,5 +1,7 @@
 package br.com.triadworks.jsf.bean;
 
+import java.sql.Connection;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,7 +26,8 @@ public class CaloteiroBean {
 		System.out.println("Gravando caloteiro no banco de dados...");
 		System.out.println("Nome:" +this.caloteiro.getNome());
 		System.out.println("Email:" +this.caloteiro.getEmail());
-		//System.out.println("Devendo:"+this.caloteiro.getDevendo());
+		System.out.println("Devendo:"+this.caloteiro.getDevendo());
+		System.out.println("Data Divída:"+ this.caloteiro.getDataDivida());
 		
 		CaloteiroDAO dao = new CaloteiroDAO();
 		dao.adiciona(caloteiro);
