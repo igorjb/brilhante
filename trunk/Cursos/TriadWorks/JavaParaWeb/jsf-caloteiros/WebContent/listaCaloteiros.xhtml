@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html">
+	<h:head>
+		<title>Lista de Caloteiros</title>
+	</h:head>
+	<h:body>
+		<b>CALOTEIROS DA WEB</b>
+		<h:dataTable value="#{caloteiroBean.lista}" var="caloteiro">
+			<h:column>
+				<f:facet name="nome">Nome</f:facet>
+				#{caloteiro.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="email">Email</f:facet>
+				#{caloteiro.email}
+			</h:column>
+			<h:column>
+				<f:facet name="devendo">Devendo</f:facet>
+				#{caloteiro.devendo}
+			</h:column>
+			<h:column>
+				<f:facet name="dataDivida">Data Dívida</f:facet>
+				#{caloteiro.dataDivida}
+			</h:column>
+		</h:dataTable>
+	</h:body>	
+
+</html>
