@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 
@@ -16,12 +17,12 @@ import br.triadworks.jsf.modelo.Caloteiro;
 public class CaloteiroBean {
 
 	private Caloteiro caloteiro = new Caloteiro();
-
+	List<Caloteiro> caloteiros;
 	public Caloteiro getCaloteiro() {
 		return caloteiro;
 	}
 	
-	public void adiciona() throws ParseException
+	public void adiciona()
 	{
 		System.out.println("Gravando caloteiro no banco de dados...");
 		System.out.println("Nome:" +this.caloteiro.getNome());
@@ -34,5 +35,12 @@ public class CaloteiroBean {
 		
 		
 		this.caloteiro = new Caloteiro();
+	}
+	
+	public List<Caloteiro> getLista()
+	{
+		CaloteiroDAO dao = new CaloteiroDAO();
+		caloteiros = dao.getLista(); 
+		return caloteiros;
 	}
 }
