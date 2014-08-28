@@ -1,7 +1,6 @@
 package br.triadworks.jsf.modelo;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 
 public class Caloteiro {
 	
@@ -9,7 +8,7 @@ public class Caloteiro {
 	private String nome;
 	private String email;
 	private Float devendo;
-	private Date dataDivida;
+	private String dataDivida;
 	
 	public Long getId() {
 		return id;
@@ -30,10 +29,10 @@ public class Caloteiro {
 		this.email = email;
 	}
 	
-	public Date getDataDivida() {
+	public String getDataDivida() {
 		return dataDivida;
 	}
-	public void setDataDivida(Date dataDivida) {
+	public void setDataDivida(String dataDivida) {
 		this.dataDivida = dataDivida;
 	}
 	

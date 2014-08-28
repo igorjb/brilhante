@@ -33,7 +33,7 @@ public class CaloteiroDAO {
 	}
 	*/
 	//Inserir Caloteiro
-	public void adiciona(Caloteiro caloteiro)
+	public void adiciona(Caloteiro caloteiro) throws ParseException
 	{
 		String sql = "insert into caloteiro " +
 					"(nome, email, devendo, dataDivida) " +
@@ -43,11 +43,17 @@ public class CaloteiroDAO {
 			//preparando a insercao
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			
+			
 			//setando os valores
 			pstmt.setString(1, caloteiro.getNome());
 			pstmt.setString(2, caloteiro.getEmail());
 			pstmt.setFloat(3, caloteiro.getDevendo());
-			pstmt.setDate(4, (Date) caloteiro.getDataDivida());
+			
+			String dataDivida = caloteiro.getDataDivida();
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			Date date = new Date(format.parse(dataDivida).getTime());  
+		      
+			pstmt.setDate(4, date);
 			
 			pstmt.execute();
 			pstmt.close();
@@ -74,14 +80,15 @@ public class CaloteiroDAO {
 				float devendo = rs.getFloat("devendo");
 				Date dataDivida = rs.getDate("dataDivida");
 				
-				
+				SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+				String dataFormatada = formatador.format(dataDivida);
 				//criando o objeto caloteiro
 				caloteiro = new Caloteiro();
 				caloteiro.setId(id);
 				caloteiro.setNome(nome);
 				caloteiro.setEmail(email);
 				caloteiro.setDevendo(devendo);
-				caloteiro.setDataDivida(dataDivida);
+				caloteiro.setDataDivida(dataFormatada);
 				
 				caloteiros.add(caloteiro);
 				
@@ -109,9 +116,6 @@ public class CaloteiroDAO {
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
 				float devendo = rs.getFloat("devendo");
-				
-				Calendar dataDivida = Calendar.getInstance();
-				dataDivida.setTime(rs.getDate("dataDivida"));
 				
 				//criando o objeto caloteiro
 				//caloteiro = new Caloteiro();
