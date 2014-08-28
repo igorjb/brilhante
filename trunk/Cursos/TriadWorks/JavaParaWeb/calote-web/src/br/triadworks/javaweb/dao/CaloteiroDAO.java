@@ -10,7 +10,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.triadworks.javaweb.modelo.Caloteiro;
-import br.triadworks.javaweb.servlets.CaloteiroServletException;
 
 public class CaloteiroDAO {
 
