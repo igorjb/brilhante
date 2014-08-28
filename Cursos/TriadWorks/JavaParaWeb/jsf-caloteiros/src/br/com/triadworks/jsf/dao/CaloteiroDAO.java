@@ -16,22 +16,12 @@ import br.triadworks.jsf.modelo.Caloteiro;
 public class CaloteiroDAO {
 
 	private Connection conexao;
-	/*
-	public CaloteiroDAO() {
-		
-	}
-	*/
+	
 	public CaloteiroDAO() 
 	{
 		this.conexao = new ConnectionFactory().getConnection();
 	}
 	
-	/*
-	public CaloteiroDAO(Connection conexao) 
-	{
-		this.conexao = conexao;
-	}
-	*/
 	//Inserir Caloteiro
 	public void adiciona(Caloteiro caloteiro) throws ParseException
 	{
@@ -43,18 +33,18 @@ public class CaloteiroDAO {
 			//preparando a insercao
 			PreparedStatement pstmt = conexao.prepareStatement(sql);
 			
-			
 			//setando os valores
 			pstmt.setString(1, caloteiro.getNome());
 			pstmt.setString(2, caloteiro.getEmail());
 			pstmt.setFloat(3, caloteiro.getDevendo());
 			
-			String dataDivida = caloteiro.getDataDivida();
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-			Date date = new Date(format.parse(dataDivida).getTime());  
-		      
-			pstmt.setDate(4, date);
 			
+			String dataDivida = caloteiro.getDataDivida();
+		    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");  
+		    Date data = new Date(format.parse(dataDivida).getTime());  
+		    
+		    pstmt.setDate(4, data);
+		    
 			pstmt.execute();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -80,7 +70,7 @@ public class CaloteiroDAO {
 				float devendo = rs.getFloat("devendo");
 				Date dataDivida = rs.getDate("dataDivida");
 				
-				SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+				SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");  
 				String dataFormatada = formatador.format(dataDivida);
 				//criando o objeto caloteiro
 				caloteiro = new Caloteiro();
@@ -116,6 +106,9 @@ public class CaloteiroDAO {
 				String nome = rs.getString("nome");
 				String email = rs.getString("email");
 				float devendo = rs.getFloat("devendo");
+				
+				Calendar dataDivida = Calendar.getInstance();
+				dataDivida.setTime(rs.getDate("dataDivida"));
 				
 				//criando o objeto caloteiro
 				//caloteiro = new Caloteiro();
