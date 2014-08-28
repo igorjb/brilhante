@@ -22,7 +22,7 @@ public class CaloteiroBean {
 		return caloteiro;
 	}
 	
-	public void adiciona()
+	public void adiciona() throws ParseException
 	{
 		System.out.println("Gravando caloteiro no banco de dados...");
 		System.out.println("Nome:" +this.caloteiro.getNome());
@@ -43,4 +43,5 @@ public class CaloteiroBean {
 		caloteiros = dao.getLista(); 
 		return caloteiros;
 	}
+	
 }
