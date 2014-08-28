@@ -1,7 +1,5 @@
 package br.triadworks.jsf.modelo;
 
-import java.sql.Date;
-
 public class Caloteiro {
 	
 	private Long id;
