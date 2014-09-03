@@ -12,5 +12,7 @@
 	<classpathentry kind="lib" path="lib/postgresql-9.3-1101.jdbc3.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-entitymanager-4.3.6.Final.jar"/>
 	<classpathentry kind="lib" path="lib/javassist-3.18.1-GA.jar"/>
+	<classpathentry kind="lib" path="lib/jandex-1.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/jboss-logging-annotations-1.2.0.Beta1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
