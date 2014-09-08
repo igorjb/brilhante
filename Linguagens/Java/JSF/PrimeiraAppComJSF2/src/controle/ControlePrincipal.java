@@ -1,17 +1,23 @@
 package controle;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "controlePrincipal")
-@RequestScoped
+@ApplicationScoped
 public class ControlePrincipal {
 
 	public String mensagem;
 	
 	public ControlePrincipal()
 	{
-		mensagem = "Bem Vindo a sua primeira aplicação com JSF2";
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:S");
+		mensagem = "A aplicação foi ao ar em: " + sdf.format(Calendar.getInstance().getTime());
 	}
 
 	public String getMensagem() {
