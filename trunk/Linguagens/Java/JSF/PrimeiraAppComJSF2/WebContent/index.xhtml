@@ -5,9 +5,18 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
 	<h:head>
-		<title>Primeira Aplicação</title>
+		<title>Java Server Faces</title>
 	</h:head> 
 <body> 
-	<h:outputLabel value="#{controlePrincipal.mensagem}" />
+	<h:outputLabel value="#{controlePrincipal.mensagem}" /><br/>
+	
+	<h:form>
+		<h:commandLink action="sobre" value="Sobre... navegação estática" /><br/>
+		<h:commandLink action="#{controlePrincipal.sobre()}" value="Sobre... com navegação dinâmica" /><br/>
+		<h:commandLink action="#{controlePrincipal.sobreRedirecionado()}" value="Sobre...redirecionado" /><br/>
+		<h:commandLink action="#{controlePrincipal.geraErro()}" value="Erro" /><br/>
+		<h:commandLink action="#{controlePrincipal.geraErroGrave()}" value="Erro grave" /><br/>
+		<h:commandLink action="#{controlePrincipal.geraLogin()}" value="Login" /><br/>
+	</h:form>
 </body> 
 </html>
