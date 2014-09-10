@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+	<h:head>
+		<title>Componentes para saída de texto e imagens</title>
+	</h:head> 
+	<h:body> 
+		<h:form id="formulario">
+			<h:commandButton value="Gerar Texto" action="#{controleComponentes.geraTexto()}" id="btnGerar" />
+			<h:commandLink action="#{controleComponentes.geraTexto()}">
+				<h:graphicImage library="images" name="breaking-bad.jpg" width="260" height="200"/>
+			</h:commandLink>
+		</h:form>
+		<h:outputText value="#{controleComponentes.texto}" escape="false"/><br/>
+		<h:outputFormat value="Eu moro em {0}, {1}">
+			<f:param value="Fortaleza"/>
+			<f:param value="Ceará"/>
+		</h:outputFormat><br/>
+		<h:graphicImage library="images" name="breaking-bad.jpg" width="260" height="200"/><br/>
+		<h:graphicImage url="/resources/images/breaking-bad.jpg" width="260" height="200"/>
+		<h:graphicImage value="#{resource['images:breaking-bad.jpg']}" width="260" height="200" />
+	</h:body> 
+</html>
