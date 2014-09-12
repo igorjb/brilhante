@@ -17,6 +17,11 @@ import br.triadworks.javaweb.modelo.Caloteiro;
 @WebServlet("/EditaCaloteiro")
 public class EditaCaloteiro extends HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		

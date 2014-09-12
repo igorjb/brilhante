@@ -18,6 +18,11 @@ import br.triadworks.javaweb.modelo.Caloteiro;
 public class FormCaloteiro extends HttpServlet 
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");

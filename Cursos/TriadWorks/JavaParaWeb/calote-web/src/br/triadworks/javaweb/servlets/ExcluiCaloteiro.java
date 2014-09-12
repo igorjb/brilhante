@@ -1,12 +1,7 @@
 package br.triadworks.javaweb.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +16,11 @@ import br.triadworks.javaweb.modelo.Caloteiro;
 @WebServlet("/ExcluiCaloteiro")
 public class ExcluiCaloteiro extends HttpServlet
 {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	protected void executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
