@@ -27,7 +27,6 @@ public class FiltroTempo implements Filter
 		
 		long tempoFinal = System.currentTimeMillis();
 		String uri = ((HttpServletRequest) request).getRequestURI();
-		String parametros = ((HttpServletRequest) request).getParameter("logica");
 		/*System.out.println("Requisição para: " + uri + "?logica=" + parametros +" foi de " 
 								+ (tempoFinal - tempoInicial));*/
 		System.out.println("Requisição para: " + uri + " foi de " 
