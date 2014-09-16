@@ -3,7 +3,6 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
-	<f:view encoding="ISO=8859-1" contentType="text/html">
 		<h:head>
 			<title>Java Server Faces</title>
 		</h:head> 
@@ -17,7 +16,7 @@
 				<h:commandLink action="#{controlePrincipal.geraErro()}" value="Erro" /><br/>
 				<h:commandLink action="#{controlePrincipal.geraErroGrave()}" value="Erro grave" /><br/>
 				<h:commandLink action="#{controlePrincipal.geraLogin()}" value="Login" /><br/>
+				<h:commandLink action="formPessoa" value="Cadastro" />
 			</h:form>
 		</body>
-	</f:view> 
 </html>
