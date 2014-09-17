@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name="controleBonus")
-@RequestScoped
+@SessionScoped
 public class ControleBonus implements Serializable  
 {
 	private String nome;
