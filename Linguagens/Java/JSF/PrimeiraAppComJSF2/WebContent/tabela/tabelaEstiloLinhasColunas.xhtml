@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Estilos para linhas e colunas da tabela de dados</title>
+	<h:outputStylesheet library="css" name="estilos.css" />
+</h:head>
+<h:body>
+	<h:dataTable value="#{controleTabela.lista}" var="obj"
+		headerClass="tabelaCabecalho" footerClass="tabelaRodape"
+		frame="box" rules="all" cellpadding="3"
+		rowClasses="primeiraLinha, segundaLinha">
+		<f:facet name="header">Listagem de pessoas</f:facet>
+		<f:facet name="footer">Total de pessoas: #{controleTabela.lista.size()}</f:facet>
+		<h:column headerClass="colunaIDCabecalho" footerClass="colunaIDRodape">
+			<f:facet name="header">ID</f:facet>
+			<f:facet name="footer">ID</f:facet>
+			#{obj.id}
+		</h:column>
+		<h:column headerClass="colunaCabecalho" footerClass="colunaRodape">
+			<f:facet name="header">Nome</f:facet>
+			<f:facet name="footer">Nome</f:facet>
+			#{obj.nome}
+		</h:column>	
+		<h:column headerClass="colunaCabecalho" footerClass="colunaRodape">
+			<f:facet name="header">Telefone</f:facet>
+			<f:facet name="footer">Telefone</f:facet>
+			#{obj.telefone}
+		</h:column>
+	</h:dataTable>
+
+</h:body>
+</html>

@@ -20,3 +20,50 @@
 	color: snow;
 	background: teal;
 }
+
+.colunaIDCabecalho{
+	font-style: italic;
+	text-align: left;
+}
+
+.colunaIDRodape{
+	font-style: italic;
+	text-align: center;
+	font-size: 0.60em;
+}
+
+.colunaCabecalho{
+	font-style: bold;
+	text-align: center;
+}
+
+.colunaRodape{
+	font-style: bold;
+	text-align: center;
+	font-size: 0.60em;
+}
+
+.primeiraColuna{
+	text-align: center;
+	background: mediumturquoise;
+}
+
+.segundaColuna{
+	text-align: center;
+	background: powderblue;
+}
+
+.terceiraColuna{
+	text-align: center;
+	background: paleturquoise;
+}
+
+.primeiraLinha{
+	text-align: center;
+	background: mediumturquoise;
+}
+
+.segundaLinha{
+	text-align: center;
+	background: powderblue;
+}
