@@ -6,6 +6,7 @@ public class Pessoa implements Serializable{
 	private Integer id;
 	private String nome;
 	private String telefone;
+	private Boolean editando;
 	
 	public Pessoa(){
 		
@@ -39,6 +40,14 @@ public class Pessoa implements Serializable{
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public Boolean getEditando() {
+		return editando;
+	}
+
+	public void setEditando(Boolean editando) {
+		this.editando = editando;
 	}
 	
 	
