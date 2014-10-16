@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Validação padrão no JSF 2</title>
+</h:head> 
+<h:body> 
+	<h:form id="formulario" prependId="false">
+		<h:messages />
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Nome" for="nome" />
+			<h:inputText value="#{controleValidacao.nome}" id="nome" size="40" required="true" requiredMessage="O nome deve ser informado"/>
+			<h:message for="nome" style="color:red"/>
+			
+			<h:outputLabel value="Telefone" for="telefone" />
+			<h:inputText value="#{controleValidacao.telefone}" id="telefone" size="40" required="true" requiredMessage="O telefone deve ser informado"/>
+			<h:message for="telefone" style="color:red"/>
+			
+			<h:outputLabel value="Email" for="email" />
+			<h:inputText value="#{controleValidacao.email}" id="email" size="40" required="true" requiredMessage="O email deve ser informado"/>
+			<h:message for="email" style="color:red"/>
+			
+			<h:outputLabel value="Idade" for="idade" />
+			<h:inputText value="#{controleValidacao.idade}" id="idade" size="3" required="true" requiredMessage="A idade deve ser informada"/>
+			<h:message for="idade" style="color:red"/>
+			
+			<h:outputLabel value="Nota" for="nota" />
+			<h:inputText value="#{controleValidacao.nota}" id="nota" size="4" required="true" requiredMessage="A nota deve ser informada"/>
+			<h:message for="nota" style="color:red"/>
+			
+			<h:commandButton action="#{controleValidacao.processaDados()}" value="Enviar" />
+		</h:panelGrid>
+		
+	</h:form>
+</h:body> 
+</html>
