@@ -12,23 +12,38 @@
 		<h:messages />
 		<h:panelGrid columns="3">
 			<h:outputLabel value="Nome" for="nome" />
-			<h:inputText value="#{controleValidacao.nome}" id="nome" size="40" required="true" requiredMessage="O nome deve ser informado"/>
+			<h:inputText value="#{controleValidacao.nome}" id="nome" size="40" required="true" 
+				requiredMessage="O nome deve ser informado" validatorMessage="O nome deve ter entre 3 e 40 caracteres">
+				<f:validateLength minimum="3" maximum="40"/>
+			</h:inputText>
 			<h:message for="nome" style="color:red"/>
 			
 			<h:outputLabel value="Telefone" for="telefone" />
-			<h:inputText value="#{controleValidacao.telefone}" id="telefone" size="40" required="true" requiredMessage="O telefone deve ser informado"/>
+			<h:inputText value="#{controleValidacao.telefone}" id="telefone" size="40" required="true" 
+				requiredMessage="O telefone deve ser informado" validatorMessage="Informe o telefone no formato (99)9999-9999">
+				<f:validateRegex pattern="\(\d{2}\)\d{4}\-\d{4}" />
+			</h:inputText>
 			<h:message for="telefone" style="color:red"/>
 			
 			<h:outputLabel value="Email" for="email" />
-			<h:inputText value="#{controleValidacao.email}" id="email" size="40" required="true" requiredMessage="O email deve ser informado"/>
+			<h:inputText value="#{controleValidacao.email}" id="email" size="40" required="true" 
+				requiredMessage="O email deve ser informado" validatorMessage="Informe um email valido">
+				<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+			</h:inputText>
 			<h:message for="email" style="color:red"/>
 			
 			<h:outputLabel value="Idade" for="idade" />
-			<h:inputText value="#{controleValidacao.idade}" id="idade" size="3" required="true" requiredMessage="A idade deve ser informada"/>
+			<h:inputText value="#{controleValidacao.idade}" id="idade" size="3" required="true" 
+				requiredMessage="A idade deve ser informada" validatorMessage="O intervalo permitido da idade é entre 10 e 80 anos">
+				<f:validateLongRange minimum="10" maximum="80"/>
+			</h:inputText>
 			<h:message for="idade" style="color:red"/>
 			
 			<h:outputLabel value="Nota" for="nota" />
-			<h:inputText value="#{controleValidacao.nota}" id="nota" size="4" required="true" requiredMessage="A nota deve ser informada"/>
+			<h:inputText value="#{controleValidacao.nota}" id="nota" size="4" required="true" 
+				requiredMessage="A nota deve ser informada" validatorMessage="O valor da nota deve estar entre 0 e 10">
+				<f:validateDoubleRange minimum="0" maximum="10"/>
+			</h:inputText>
 			<h:message for="nota" style="color:red"/>
 			
 			<h:commandButton action="#{controleValidacao.processaDados()}" value="Enviar" />
