@@ -57,8 +57,7 @@ public class GeraFaturasWriter implements ItemWriter
 		cliente = getCliente();
 		fatura = cliente.getFaturaAberta();
 		
-		File file = new File(TMP_DIR + File.separator + "/fatura-cliente-" 
-							+ cliente.getId());
+		File file = new File("C://fatura-cliente-" + cliente.getId());
 		
 		
 		// Processo sendo reaberto após alguma interrupção no processo ou
