@@ -5,32 +5,17 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Fatura Web</name>
-  <build>
-  		<finalName>${project.artifactId}</finalName>
-  		<plugins>
-  			<plugin>
-  				<artifactId>maven-compiler-plugin</artifactId>
-  				<configuration>
-  					<source>1.7</source>
-  					<target>1.7</target>
-  				</configuration>
-  			</plugin>
-  			<plugin>
-  				<groupId>org.apache.maven.plugins</groupId>
-  				<artifactId>maven-war-plugin</artifactId>
-  				<version>2.1.1</version>
-  				<configuration>
-  					<failOnMissingWebXml>false</failOnMissingWebXml>
-  				</configuration>
-  			</plugin>
-  		</plugins>
-  </build>
-  <dependencies>
-  		<dependency>
-  			<groupId>javax</groupId>
-  			<artifactId>javaee-api</artifactId>
-  			<version>7.0</version>
-  			<scope>provided</scope>
-  		</dependency>
-  </dependencies>
+
+  <parent>
+		<groupId>br.gov.fortaleza</groupId>
+		<artifactId>pom-cogect-web</artifactId>
+		<version>0.0.2</version>
+  </parent>
+  <repositories>
+		<repository>
+			<id>repositorio.cogect</id>
+			<name>Repositorio da COGECT</name>
+			<url>http://maven.fortaleza.ce.gov.br/cogect/</url>
+		</repository>
+	</repositories>
 </project>
