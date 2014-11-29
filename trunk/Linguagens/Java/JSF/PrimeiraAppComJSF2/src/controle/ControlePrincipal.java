@@ -3,7 +3,6 @@ package controle;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 //import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
