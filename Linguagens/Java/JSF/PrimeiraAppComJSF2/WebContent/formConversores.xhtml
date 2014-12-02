@@ -11,6 +11,11 @@
 				<h:inputText value="#{controleAulaConversores.nascimento}">
 					<f:converter converterId="converterCalendar"/>
 				</h:inputText>
+				<h:outputLabel value="Cidade"/>
+				<h:selectOneMenu value="#{controleAulaConversores.cidade}"
+				converter="#{controleAulaConversores.converterCidade}">
+					<f:selectItems value="#{controleAulaConversores.listaCidades}"/>
+				</h:selectOneMenu>
 				<f:facet name="footer">
 					<h:commandButton action="#{controleAulaConversores.lerDados()}" value="Enviar" />
 				</f:facet>
