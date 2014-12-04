@@ -67,3 +67,36 @@
 	text-align: center;
 	background: powderblue;
 }
+
+.titulo {
+	font-size: 1.4em;
+	font-style: italic;
+	font-family: Palatino;
+	text-align: center;
+}
+
+#cabecalho {
+	padding: 20px;
+	height: 30px;
+	margin-bottom: 10px;
+	background: #dddddd;
+	border: 1px solid darkGray;
+}
+
+#barraEsquerda{
+	border: thin solid lightGray;
+	padding: 5px;
+	width: 150px;
+	background: #eeeeeee;
+}
+
+#conteudo{
+	padding: 5px;
+	border: thin solid lightGray;
+	background: #fefeef;
+	position: absolute;
+	right: 8px;
+	left: 180px;
+	height: 400px;
+	top:90px;
+}
