@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+		<h:head>
+			<title>Java Server Faces</title>
+		</h:head> 
+		<body> 
+			<h:outputLabel value="#{controlePrincipal.mensagem}" /><br/>
+			
+			<h:form>
+				<h:commandLink action="sobre" value="Sobre... navegação estática" /><br/>
+				<h:commandLink action="#{controlePrincipal.sobre()}" value="Sobre... com navegação dinâmica" /><br/>
+				<h:commandLink action="#{controlePrincipal.sobreRedirecionado()}" value="Sobre...redirecionado" /><br/>
+				<h:commandLink action="#{controlePrincipal.geraErro()}" value="Erro" /><br/>
+				<h:commandLink action="#{controlePrincipal.geraErroGrave()}" value="Erro grave" /><br/>
+				<h:commandLink action="#{controlePrincipal.geraLogin()}" value="Login" /><br/>
+				<h:commandLink action="formPessoa" value="Cadastro" /><br/>
+				<h:commandLink action="formBonus" value="Calculo de bonus" />
+			</h:form>
+		</body>
+</html>
