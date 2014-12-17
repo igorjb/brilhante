@@ -1,5 +1,6 @@
 package controle;
 
+
 import java.io.Serializable;
 
 public class Cidade implements Serializable{
