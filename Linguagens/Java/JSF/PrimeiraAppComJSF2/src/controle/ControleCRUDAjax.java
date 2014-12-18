@@ -3,7 +3,7 @@ package controle;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+import modelo.Pessoa;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -14,7 +14,7 @@ public class ControleCRUDAjax implements Serializable{
 	private Pessoa objeto;
 	private Boolean editando;
 	
-	private ControleCRUDAjax(){
+	public ControleCRUDAjax(){
 		editando = false;
 	}
 	
@@ -50,7 +50,7 @@ public class ControleCRUDAjax implements Serializable{
 	
 	public void excluir(Pessoa obj)
 	{
-		lista.add(obj);
+		lista.remove(obj);
 	}
 	
 	public List<Pessoa> getLista() {
