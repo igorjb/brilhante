@@ -6,7 +6,69 @@
 	<ui:composition template="/templates/template.xhtml">
 		<ui:define name="tituloJanela">Manutenção de pessoas com Ajax</ui:define>
 		<ui:define name="conteudo">
-			
+			<h:form id="form">
+				<h:messages />
+				<h:panelGroup rendered="#{!controleCRUDAjax.editando}">
+				<h:dataTable value="#{controleCRUDAjax.lista}" var="obj" id="lista"
+							frame="box" rules="all" cellpadding="3">
+					<f:facet name="header">
+						<h:commandButton action="#{controleCRUDAjax.novo()}" value="Novo" >
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+					</f:facet>
+						<h:column>
+							<f:facet name="header">ID</f:facet>
+							<h:outputText value="#{obj.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">NOME</f:facet>
+							<h:outputText value="#{obj.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">EMAIL</f:facet>
+							<h:outputText value="#{obj.email}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Alterar</f:facet>
+							<h:commandLink action="#{controleCRUDAjax.alterar(obj)}" value="Alterar" >
+								<f:ajax render="@form" execute="@form"/>
+							</h:commandLink>
+						</h:column>
+						<h:column>
+							<f:facet name="header">Excluir</f:facet>
+							<h:commandLink action="#{controleCRUDAjax.excluir(obj)}" value="Excluir" 
+											onclick="if (!confirm('Confirme a exclusão da pessoa?')) return false">
+								<f:ajax render="@form" execute="@form"/>
+							</h:commandLink>
+						</h:column>
+				
+				</h:dataTable>
+				</h:panelGroup>
+				<h:panelGroup rendered="#{controleCRUDAjax.editando}">
+					<h:panelGrid columns="2">
+						<f:facet name="header">Edição de pessoas</f:facet>
+						<f:facet name="footer">
+							<div align="center">
+								<h:commandButton action="#{controleCRUDAjax.cancelar()}" value="Cancelar" immediate="true">
+									<f:ajax execute="@form" render="@form"/>
+								</h:commandButton>
+								<h:commandButton action="#{controleCRUDAjax.salvar()}" value="Salvar">
+									<f:ajax execute="@form" render="@form"/>
+								</h:commandButton>
+							</div>
+						</f:facet>
+						
+						<h:outputLabel value="ID" />
+						<h:inputText value="#{controleCRUDAjax.objeto.id}" readonly="true"/>
+						<h:outputLabel value="Nome" />
+						<h:inputText value="#{controleCRUDAjax.objeto.nome}"
+							maxlength="40" size="40"/>
+						<h:outputLabel value="Email" />
+						<h:inputText value="#{controleCRUDAjax.objeto.email}"
+							maxlength="40" size="40"  />
+					</h:panelGrid>
+				</h:panelGroup>
+			</h:form>
 		</ui:define>
 	</ui:composition>
 
