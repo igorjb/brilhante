@@ -3,9 +3,13 @@ package controle;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import modelo.Pessoa;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name="controleCRUDAjax")
 @ViewScoped
@@ -36,6 +40,8 @@ public class ControleCRUDAjax implements Serializable{
 			objeto.setId(lista.size()+1);
 			lista.add(objeto);
 		}
+		FacesMessage msg = new FacesMessage(Uteis.getMsg("crud.sucesso.salvar"));
+		FacesContext.getCurrentInstance().addMessage("", msg);
 		editando = false;
 	}
 	
@@ -51,6 +57,8 @@ public class ControleCRUDAjax implements Serializable{
 	public void excluir(Pessoa obj)
 	{
 		lista.remove(obj);
+		FacesMessage msg = new FacesMessage(Uteis.getMsg("crud.sucesso.excluir"));
+		FacesContext.getCurrentInstance().addMessage("", msg);
 	}
 	
 	public List<Pessoa> getLista() {
