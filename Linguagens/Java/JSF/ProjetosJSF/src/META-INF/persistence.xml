@@ -5,6 +5,8 @@
 		<class>br.com.devmedia.beans.Grupo</class>
 		<class>br.com.devmedia.beans.Setor</class>
 		<class>br.com.devmedia.beans.Funcionario</class>
+		<class>br.com.devmedia.beans.Projeto</class>
+		<class>br.com.devmedia.beans.ProjetoFuncionario</class>
 		<properties>
 			<property name="hibernate.connection.username" value="postgres"/>
 			<property name="hibernate.connection.password" value="postgres"/>
