@@ -1,8 +1,11 @@
 package br.com.devmedia.beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,11 +14,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Index;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -52,6 +59,11 @@ public class Projeto implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="SETOR", referencedColumnName="ID", nullable=false)
 	private Setor setor;
+	@OneToMany(mappedBy="projeto", cascade= {CascadeType.ALL},
+					orphanRemoval=true)
+	@LazyCollection(LazyCollectionOption.EXTRA)
+	@OrderBy(value="id asc")
+	private List<ProjetoFuncionario> funcionarios = new ArrayList<ProjetoFuncionario>();
 	
 	public Projeto() {
 
@@ -113,6 +125,15 @@ public class Projeto implements Serializable{
 		this.setor = setor;
 	}
 
+	
+	public List<ProjetoFuncionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<ProjetoFuncionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -143,5 +164,18 @@ public class Projeto implements Serializable{
 		return nome;
 	}
 
+	public void adicionarFuncionario(ProjetoFuncionario obj) {
+		obj.setProjeto(this);
+		this.funcionarios.add(obj);
+	}
 	
+	public void removerFuncionario(ProjetoFuncionario obj) {
+		if (this.funcionarios.contains(obj)){
+			this.funcionarios.remove(obj);
+		}
+	}
+	
+	public void removerTodosFuncionarios() {
+		this.funcionarios.clear();
+	}
 }
