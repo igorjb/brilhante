@@ -6,6 +6,11 @@
 
 <h:head><title>Gerenciamento de Projetos com JSF</title></h:head> 
 <h:body> 
-	Seja bem vindo ao sistema
+	Seja bem vindo ao sistema <br/>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
+		</h:panelGrid>
+	</h:form>
 </h:body> 
 </html>
