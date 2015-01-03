@@ -1,18 +1,19 @@
-package br.com.devmedia.beans;
+package br.com.devmedia.modelo;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.devmedia.beans.Setor;
 import br.com.devmedia.jpa.EntityManagerUtil;
 import br.com.devmedia.util.UtilErros;
 import br.com.devmedia.util.UtilMensagens;
 
-public class GrupoDAO {
+public class SetorDAO {
 
 	private EntityManager em;
 	
-	public GrupoDAO() {
+	public SetorDAO() {
 		em = EntityManagerUtil.getEntityManager();
 	}
 	
@@ -27,14 +28,14 @@ public class GrupoDAO {
 	}
 
 
-	public List<Grupo> listarTodos() {
-		return em.createQuery("from Grupo order by nome").getResultList();
+	public List<Setor> listarTodos(){
+		return em.createQuery("from Setor order by nome").getResultList();
 	}
 	
-	public boolean gravar(Grupo obj) {
+	public boolean gravar(Setor obj) {
 		try {
 			em.getTransaction().begin();
-			if (obj.getId() == null)
+			if (obj.getId() == null) 
 			{
 				em.persist(obj);
 			} else {
@@ -44,7 +45,7 @@ public class GrupoDAO {
 			UtilMensagens.mensagemInformacao("Objeto persistido com sucesso!");
 			return true;
 		} catch (Exception e) {
-			if (em.getTransaction().isActive() == false) {
+			if (em.getTransaction().isActive() == false){
 				em.getTransaction().begin();
 			}
 			em.getTransaction().rollback();
@@ -53,7 +54,7 @@ public class GrupoDAO {
 		}
 	}
 	
-	public boolean excluir(Grupo obj) {
+	public boolean excluir(Setor obj) {
 		try {
 			em.getTransaction().begin();
 			em.remove(obj);
@@ -61,7 +62,7 @@ public class GrupoDAO {
 			UtilMensagens.mensagemInformacao("Objeto removido com sucesso!");
 			return true;
 		} catch (Exception e) {
-			if (em.getTransaction().isActive() == false){
+			if (em.getTransaction().isActive() == false) {
 				em.getTransaction().begin();
 			}
 			em.getTransaction().rollback();
@@ -70,8 +71,7 @@ public class GrupoDAO {
 		}
 	}
 	
-	public Grupo localizar(Integer id) {
-		return em.find(Grupo.class, id);
+	public Setor localizar(Integer id) {
+		return em.find(Setor.class, id);
 	}
-
 }
