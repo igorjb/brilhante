@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.devmedia.beans.Grupo;
-import br.com.devmedia.beans.GrupoDAO;
+import br.com.devmedia.modelo.GrupoDAO;
 
 @ManagedBean(name="controleGrupo")
 @SessionScoped
