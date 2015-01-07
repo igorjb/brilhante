@@ -5,12 +5,17 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.apache.commons.io.IOUtils;
+import org.primefaces.event.FileUploadEvent;
+
 import br.com.devmedia.beans.Funcionario;
 import br.com.devmedia.conversores.ConverterGrupo;
 import br.com.devmedia.conversores.ConverterSetor;
 import br.com.devmedia.modelo.FuncionarioDAO;
 import br.com.devmedia.modelo.GrupoDAO;
 import br.com.devmedia.modelo.SetorDAO;
+import br.com.devmedia.util.UtilErros;
+import br.com.devmedia.util.UtilMensagens;
 
 @ManagedBean(name="controleFuncionario")
 @SessionScoped
@@ -63,6 +68,15 @@ public class ControleFuncionario implements Serializable{
 		return "listar";
 	}
 	
+	public void enviarFoto(FileUploadEvent event) {
+		try {
+			byte[] foto = IOUtils.toByteArray(event.getFile().getInputstream());
+			objeto.setFoto(foto);
+			UtilMensagens.mensagemInformacao("Arquivo enviado com sucesso!" + event.getFile().getFileName());
+		} catch (Exception e) {
+			UtilMensagens.mensagemErro("Erro ao enviar arquivo:" + UtilErros.getMenssagemErro(e));
+		}
+	}
 	public FuncionarioDAO getDao() {
 		return dao;
 	}
