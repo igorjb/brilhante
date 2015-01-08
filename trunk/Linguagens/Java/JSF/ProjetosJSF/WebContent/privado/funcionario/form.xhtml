@@ -54,7 +54,7 @@
 			</h:selectOneMenu>
 			<h:outputLabel value="Foto:" />
 			<p:fileUpload id="uploadImagem" mode="advanced" update="messages,imagem" auto="true" label="Selecionar"
-				fileUploadListener="#{controleFuncionario.enviarFoto()}"/>
+				fileUploadListener="#{controleFuncionario.enviarFoto}"/>
 			<h:outputLabel value="" />
 			<p:graphicImage value="#{controleFuncionario.objeto.imagem}" id="imagem" style="width:60px;height:60px" cache="false"
 			allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
