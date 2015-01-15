@@ -71,4 +71,11 @@ public class ProjetoDAO {
 	public Projeto localizar(Integer id) {
 		return em.find(Projeto.class, id);
 	}
+	
+	public void roolback() {
+		if (em.getTransaction().isActive() == false) {
+			em.getTransaction().begin();
+		}
+		em.getTransaction().rollback();
+	}
 }
