@@ -84,6 +84,49 @@
 					</h:column>
 				</h:dataTable>
 		</h:panelGroup>
+		<h:panelGroup rendered="#{controleProjeto.addFunc == true}">
+			<h:panelGrid columns="2">
+				<f:facet name="header">Funcionario do projeto</f:facet>
+				<f:facet name="footer">
+					<div align="center">
+						<h:commandButton value="Cancelar" action="#{controleProjeto.cancelarFuncionario()}" immediate="true">
+							<f:ajax execute="@this" render="@form"/>
+						</h:commandButton>
+						<h:commandButton value="Salvar" action="#{controleProjeto.salvarFuncionario()}">
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+					</div>
+				</f:facet>
+				<h:outputLabel value="Funcionario" />
+				<h:selectOneMenu value="#{controleProjeto.funcionario}"
+					converter="#{controleProjeto.converterFuncionario}"
+					required="true"
+					requiredMessage="Informe o funcionario">
+					<f:selectItem itemLabel="Selecione um funcionario" 
+								noSelectionOption="true"/>	
+					<f:selectItems value="#{controleProjeto.daoFuncionario.listarTodos()}"/>
+				</h:selectOneMenu>
+				<h:outputLabel value="Carga Horaria" />
+				<h:inputText value="#{controleProjeto.cargaHoraria}" size="3"
+								required="true" requiredMessage="Informe a carga horaria"
+								onkeydown="Mascara(this, Integer;)" onkeypress="Mascara(this, Integer;)"
+								onkeyup="Mascara(this, Integer;)"/>
+				<h:outputLabel value="Gestor" />
+				<h:selectBooleanCheckbox value="#{controleProjeto.gestor}" />
+				<h:outputLabel value="Inicio Participação" />
+				<h:inputText value="#{controleProjeto.inicioParticipacao}" size="12"
+								onkeydown="Mascara(this, Data);" onkeyup="Mascara(this, Data);"
+								onkeypress="Mascara(this, Data);" >
+					<f:converter converterId="converterCalendar"/>
+				</h:inputText>
+				<h:outputLabel value="Fim Participação" />
+				<h:inputText value="#{controleProjeto.fimParticipacao}" size="12"
+								onkeydown="Mascara(this, Data);" onkeyup="Mascara(this, Data);"
+								onkeypress="Mascara(this, Data);">
+					<f:converter converterId="converterCalendar"/>
+				</h:inputText>
+			</h:panelGrid>
+		</h:panelGroup>
 	</h:form>
 </h:body> 
 </html>
