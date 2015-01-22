@@ -90,6 +90,75 @@ public class GenericDAO<T> implements Serializable{
 		return em.createQuery(jpql).getResultList();
 	
 	}
+	
+	public String protegeFiltro(String filtro) {
+		filtro = filtro.replaceAll("[';-]", "");
+		return filtro;
+	}
+	
+	public List<T> listar() {
+		String jpql = "from " + classe.getSimpleName();
+		String where = "";
+		if (filtro != null && filtro.length() > 0) {
+			filtro = protegeFiltro(filtro);
+			if (ordemAtual.getAtributo().equals("id"))
+			{
+				try {
+					Integer.parseInt(filtro);
+					where = "where "+ordemAtual.getAtributo() + " = '"+filtro+ " ' "; 
+				} catch (Exception e) {
+					
+				}
+			}
+			else{
+				where = " where upper("+ordemAtual.getAtributo()+ ") like '" + filtro.toUpperCase()+ "%' ";
+			}
+		}
+		jpql += where;
+		if (ordemAtual != null){
+			jpql += " order by "+ordemAtual.getAtributo();
+		}
+		totalObjetos = em.createNativeQuery("select id from "+classe.getSimpleName()).getResultList().size();
+		if (maximoObjetos == 0){
+			maximoObjetos = totalObjetos;
+		}
+		return em.createQuery(jpql).setMaxResults(maximoObjetos).setFirstResult(posicao).getResultList();
+	}
+	
+	public void primeiro() {
+		posicao = 0;
+	}
+	
+	public void anterior() {
+		posicao -= maximoObjetos;
+		if (posicao < 0) {
+			posicao = 0;
+		}
+	}
+	
+	public void proximo() {
+		if (posicao + maximoObjetos < totalObjetos) {
+			posicao += maximoObjetos;
+		}
+	}
+	
+	public void ultimo() {
+		int resto = totalObjetos % maximoObjetos;
+		if (resto > 0) {
+			posicao = totalObjetos - resto;
+		} else {
+			posicao = totalObjetos - maximoObjetos;
+		}
+	}
+	
+	public String getMensagemNavegacao() {
+		int ate = posicao + maximoObjetos;
+		if (ate > totalObjetos){
+			ate = totalObjetos;
+		}
+		
+		return "Listando de " + (posicao + 1) + " até " + ate + " de " + totalObjetos + " registros";
+	}
 	public Class getClasse() {
 		return classe;
 	}
