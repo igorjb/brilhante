@@ -96,6 +96,7 @@ public class GenericDAO<T> implements Serializable{
 		return filtro;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<T> listar() {
 		String jpql = "from " + classe.getSimpleName();
 		String where = "";
