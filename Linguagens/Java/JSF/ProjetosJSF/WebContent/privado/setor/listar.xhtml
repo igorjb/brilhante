@@ -44,7 +44,8 @@
 						<f:ajax execute="@form" render="@form"/>
 					</h:commandButton>
 				</div>
-				<h:column>
+			</f:facet>	
+			<h:column>
 					<f:facet name="header">ID</f:facet>
 					#{obj.id}
 				</h:column>
@@ -60,8 +61,7 @@
 					<f:facet name="header">Excluir</f:facet>
 					<h:commandLink action="#{controleSetor.excluir(obj)}" value="Excluir" 
 							onclick="if (!confirm('Confirme a exclusão do setor?')) return false;"/>
-				</h:column>
-			</f:facet>			
+				</h:column>		
 		</h:dataTable>
 	</h:form>
 </h:body> 
