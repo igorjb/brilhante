@@ -13,7 +13,7 @@ import br.com.devmedia.util.UtilMensagens;
 @SuppressWarnings("serial")
 public class GenericDAO<T> implements Serializable{
 	
-	private Class classe;
+	private Class<T> classe;
 	private EntityManager em;
 	private String filtro = "";
 	private List<Ordem> listaOrdem = new ArrayList<Ordem>();
@@ -106,7 +106,7 @@ public class GenericDAO<T> implements Serializable{
 			{
 				try {
 					Integer.parseInt(filtro);
-					where = "where "+ordemAtual.getAtributo() + " = '"+filtro+ " ' "; 
+					where = " where "+ordemAtual.getAtributo() + " = '"+filtro+ " ' "; 
 				} catch (Exception e) {
 					
 				}
