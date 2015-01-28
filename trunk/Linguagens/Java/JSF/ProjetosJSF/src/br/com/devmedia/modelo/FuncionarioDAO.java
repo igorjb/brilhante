@@ -3,6 +3,7 @@ package br.com.devmedia.modelo;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import br.com.devmedia.beans.Funcionario;
 import br.com.devmedia.jpa.EntityManagerUtil;
@@ -71,5 +72,22 @@ public class FuncionarioDAO {
 
 	public Funcionario localizar(Integer id) {
 		return em.find(Funcionario.class, id);
+	}
+	
+	public boolean login(String usuario, String senha) {
+		Query query = em.createQuery("from funcionario where upper(nomeUsuario) = :usuario "
+				+ "and upper(senha) = :senha and ativo = true");
+		query.setParameter("usuario", usuario.toUpperCase());
+		query.setParameter("senha", senha.toUpperCase());
+		if (!query.getResultList().isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public Funcionario localizarPorNome(String usuario) {
+		return (Funcionario) em.createQuery("from Funcionario where upper(nomeUsuario) = "
+				+ ":usuario").setParameter("usuario", usuario.toUpperCase()).getSingleResult();
 	}
 }
