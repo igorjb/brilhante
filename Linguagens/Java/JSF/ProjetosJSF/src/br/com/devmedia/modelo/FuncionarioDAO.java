@@ -75,7 +75,7 @@ public class FuncionarioDAO {
 	}
 	
 	public boolean login(String usuario, String senha) {
-		Query query = em.createQuery("from funcionario where upper(nomeUsuario) = :usuario "
+		Query query = em.createQuery("from Funcionario where upper(nomeUsuario) = :usuario "
 				+ "and upper(senha) = :senha and ativo = true");
 		query.setParameter("usuario", usuario.toUpperCase());
 		query.setParameter("senha", senha.toUpperCase());
