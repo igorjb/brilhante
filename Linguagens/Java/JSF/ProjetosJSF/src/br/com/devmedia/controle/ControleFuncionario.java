@@ -1,6 +1,7 @@
 package br.com.devmedia.controle;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -19,6 +20,7 @@ import br.com.devmedia.modelo.GrupoDAO;
 import br.com.devmedia.modelo.SetorDAO;
 import br.com.devmedia.util.UtilErros;
 import br.com.devmedia.util.UtilMensagens;
+import br.com.devmedia.util.UtilRelatorios;
 
 @ManagedBean(name="controleFuncionario")
 @SessionScoped
@@ -140,5 +142,8 @@ public class ControleFuncionario implements Serializable{
 		this.converterSetor = converterSetor;
 	}
 
-	
+	public void relatorio() {
+		HashMap parametros = new HashMap<>();
+		UtilRelatorios.imprimeRelatorio("funcionario", parametros, dao.listarTodos());
+	}
 }
