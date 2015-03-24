@@ -20,9 +20,9 @@ public class UtilRelatorios {
 			JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(lista);
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			ServletContext scontext = (ServletContext) facesContext.getExternalContext().getContext();
-			String path = scontext.getRealPath("/WEB-INF/relatorios/");
+			String path = scontext.getRealPath("/WEB-INF/relatorios");
 			parametros.put("SUBREPORT_DIR", path + File.separator);
-			JasperPrint jasperPrint = JasperFillManager.fillReport(path + relatorioNome+".jasper", parametros, dataSource);
+			JasperPrint jasperPrint = JasperFillManager.fillReport(path + "/" + relatorioNome+".jasper", parametros, dataSource);
 			byte[] b = JasperExportManager.exportReportToPdf(jasperPrint);
 			HttpServletResponse res = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 			res.setContentType("application/pdf");
