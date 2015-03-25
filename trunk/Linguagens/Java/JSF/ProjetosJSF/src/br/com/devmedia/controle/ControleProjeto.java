@@ -2,6 +2,7 @@ package br.com.devmedia.controle;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -14,6 +15,7 @@ import br.com.devmedia.conversores.ConverterSetor;
 import br.com.devmedia.modelo.FuncionarioDAO;
 import br.com.devmedia.modelo.ProjetoDAO;
 import br.com.devmedia.modelo.SetorDAO;
+import br.com.devmedia.util.UtilRelatorios;
 
 @ManagedBean(name="controleProjeto")
 @SessionScoped
@@ -186,5 +188,10 @@ public class ControleProjeto implements Serializable{
 		inicioParticipacao = null;
 		fimParticipacao = null;
 		gestor = null;
+	}
+	
+	public void relatorio() {
+		HashMap parametros = new HashMap();
+		UtilRelatorios.imprimeRelatorio("projetos", parametros, dao.listarTodos());
 	}
 }
