@@ -1,59 +1,58 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-
-<h:head>
-	<title>Listagem de funcionarios</title>
-</h:head>
-<h:body>
-	<h:form>
-		<h:commandLink action="/index?faces-redirect=true" value="Inicio" />
-		<h:messages />
-		<h:dataTable value="#{controleFuncionario.dao.listarTodos()}"
-			var="obj" frame="box" rules="all" cellpadding="3">
-			<f:facet name="header">
-				<h:commandButton action="#{controleFuncionario.novo()}"
-					value="Novo registro" />
-				<h:commandButton action="#{controleFuncionario.relatorio()}" value="Imprimir" onclick="this.form.target='_blank';" />
-			</f:facet>
-			<h:column>
-				<f:facet name="header">ID</f:facet>
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="tituloPagina">Listagem de Funcionários</ui:define>
+	<ui:define name="conteudo">
+		<h:form>
+			<h:messages />
+			<h:dataTable value="#{controleFuncionario.dao.listarTodos()}"
+				var="obj" frame="box" rules="all" cellpadding="3">
+				<f:facet name="header">
+					<h:commandButton action="#{controleFuncionario.novo()}"
+						value="Novo registro" />
+					<h:commandButton action="#{controleFuncionario.relatorio()}"
+						value="Imprimir" onclick="this.form.target='_blank';" />
+				</f:facet>
+				<h:column>
+					<f:facet name="header">ID</f:facet>
 				#{obj.id}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Nome</f:facet>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
 				#{obj.nome}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Grupo</f:facet>
+				<h:column>
+					<f:facet name="header">Grupo</f:facet>
 				#{obj.grupo.nome}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Setor</f:facet>
+				<h:column>
+					<f:facet name="header">Setor</f:facet>
 				#{obj.setor.nome}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Foto</f:facet>
-				<p:graphicImage value="#{controleFuncionario.imagemDinamica}"
-					id="imagem" style="width:60px;height:60px" cache="false">
-					<f:param name="id_imagem" value="#{obj.id}" />
-				</p:graphicImage>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Alterar</f:facet>
-				<h:commandLink action="#{controleFuncionario.alterar(obj)}"
-					value="Alterar" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">Excluir</f:facet>
-				<h:commandLink action="#{controleFuncionario.excluir(obj)}"
-					value="Excluir"
-					onclick="if (!confirm('Confirma a exclusão do funcionario? ')) return false" />
-			</h:column>
-		</h:dataTable>
-	</h:form>
-</h:body>
+				<h:column>
+					<f:facet name="header">Foto</f:facet>
+					<p:graphicImage value="#{controleFuncionario.imagemDinamica}"
+						id="imagem" style="width:60px;height:60px" cache="false">
+						<f:param name="id_imagem" value="#{obj.id}" />
+					</p:graphicImage>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Alterar</f:facet>
+					<h:commandLink action="#{controleFuncionario.alterar(obj)}"
+						value="Alterar" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Excluir</f:facet>
+					<h:commandLink action="#{controleFuncionario.excluir(obj)}"
+						value="Excluir"
+						onclick="if (!confirm('Confirma a exclusão do funcionario? ')) return false" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>
