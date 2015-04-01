@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:devmedia="http://java.sun.com/jsf/composite/devmedia">
+	<body>
+		<!-- <devmedia:linkImagem biblioteca="images" imagem="home.png" acao="#{controlePrincipal.home()}"/> -->
+		<h:form>
+			<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			  <h:panelGrid columns="1">
+			    <h:outputLabel value="Usuário Logado:" />
+			    <h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
+				<h:commandLink action="/index?faces-redirect=true" value="Home" />
+				<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
+				<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
+				<h:commandLink action="/meusComponentes" value="#{msgs['menu.componentes']}" />
+				<h:commandLink action="#{controleCRUDAjax.listar()}" value="#{msgs['menu.crud_ajax']}" />
+				<h:commandLink action="#{controleLogin.efetuarLogout()}" value="Sair" />
+			  </h:panelGrid>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
+			    <h:commandLink action="#{controleLogin.paginaLogin()}" value="Login" />
+		    </h:panelGroup>
+		</h:form>
+	</body>
+</html>
