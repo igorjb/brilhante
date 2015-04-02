@@ -13,9 +13,9 @@
 			    <h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
 				<h:commandLink action="/index?faces-redirect=true" value="Home" />
 				<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
-				<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionarios" />
-				<h:commandLink action="/meusComponentes" value="#{msgs['menu.componentes']}" />
-				<h:commandLink action="#{controleCRUDAjax.listar()}" value="#{msgs['menu.crud_ajax']}" />
+				<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionários" />
+				<h:commandLink action="#{controleProjeto.listar()}" value="Projetos" />
+				<h:commandLink action="#{controleSetor.listar()}" value="Setores" />
 				<h:commandLink action="#{controleLogin.efetuarLogout()}" value="Sair" />
 			  </h:panelGrid>
 			</h:panelGroup>
