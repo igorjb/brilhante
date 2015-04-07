@@ -11,12 +11,12 @@
 			  <h:panelGrid columns="1">
 			    <h:outputLabel value="Usuário Logado:" />
 			    <h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
-				<h:commandLink action="/index?faces-redirect=true" value="Home" />
-				<h:commandLink action="#{controleGrupo.listar()}" value="Grupos" />
-				<h:commandLink action="#{controleFuncionario.listar()}" value="Funcionários" />
-				<h:commandLink action="#{controleProjeto.listar()}" value="Projetos" />
-				<h:commandLink action="#{controleSetor.listar()}" value="Setores" />
-				<h:commandLink action="#{controleLogin.efetuarLogout()}" value="Sair" />
+				<h:commandLink action="/index?faces-redirect=true" value="#{msgs['menu.home']}" />
+				<h:commandLink action="#{controleGrupo.listar()}" value="#{msgs['menu.grupos']}" />
+				<h:commandLink action="#{controleFuncionario.listar()}" value="#{msgs['menu.funcionarios']}" />
+				<h:commandLink action="#{controleProjeto.listar()}" value="#{msgs['menu.projetos']}" />
+				<h:commandLink action="#{controleSetor.listar()}" value="#{msgs['menu.setores']}" />
+				<h:commandLink action="#{controleLogin.efetuarLogout()}" value="#{msgs['menu.sair']}" />
 			  </h:panelGrid>
 			</h:panelGroup>
 			<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
