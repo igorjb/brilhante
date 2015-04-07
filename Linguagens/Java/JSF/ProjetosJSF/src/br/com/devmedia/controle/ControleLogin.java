@@ -2,6 +2,7 @@ package br.com.devmedia.controle;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -19,6 +20,12 @@ public class ControleLogin implements Serializable{
 	private String usuario;
 	private String senha;
 	
+	@PostConstruct
+	public void inicializar() {
+		usuario = new String();
+		senha = new String();
+		usuarioLogado = new Funcionario();
+	}
 	public ControleLogin() {
 		dao = new FuncionarioDAO();
 	}
