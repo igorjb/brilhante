@@ -4,22 +4,22 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/templates/template.xhtml">
-	<ui:define name="tituloJanela">Listagem de grupos</ui:define>
+	<ui:define name="tituloJanela">#{msgs['grupo.titulo']}</ui:define>
 	<ui:define name="conteudo">
 		<h:form>
 			<h:messages />
-			<h:commandLink action="#{controleGrupo.novo()}" value="Novo registro" />
+			<h:commandLink action="#{controleGrupo.novo()}" value="#{msgs['grupo.novo']}" />
 			<h:panelGrid columns="6">
 				<h:selectOneMenu value="#{controleGrupo.dao.ordem}">
-					<f:selectItem itemLabel="ID" itemValue="id" />
-					<f:selectItem itemLabel="Nome" itemValue="nome" />
+					<f:selectItem itemLabel="#{msgs['grupo.label.id']}" itemValue="#{msgs['grupo.value.id']}" />
+					<f:selectItem itemLabel="#{msgs['grupo.label.nome']}" itemValue="#{msgs['grupo.value.nome']}" />
 					<f:ajax execute="@form" render="@form" />
 				</h:selectOneMenu>
-				<h:outputLabel value="Filtro:" />
+				<h:outputLabel value="#{msgs['grupo.filtro']}" />
 				<h:inputText value="#{controleGrupo.dao.filtro}">
 					<f:ajax execute="@form" render="@form" event="keyup" />
 				</h:inputText>
-				<h:outputText value="Maximo de objetos" />
+				<h:outputText value="#{msgs['grupo.maximo.objetos']}" />
 				<h:inputText value="#{controleGrupo.dao.maximosObjetos}" size="3">
 					<f:ajax execute="@form" render="@form" event="keyup" />
 				</h:inputText>
@@ -27,46 +27,46 @@
 
 			<h:dataTable value="#{controleGrupo.dao.listar()}" var="obj"
 				frame="box" rules="all" cellpadding="3">
-				<f:facet name="header">Listagem de Grupos</f:facet>
+				<f:facet name="header">#{msgs['grupo.titulo']}</f:facet>
 				<f:facet name="footer">
 					<div align="center">
 						<h:outputLabel value="#{controleGrupo.dao.mensagemNavegacao}" />
 						<br />
-						<h:commandButton value="Primeiro"
+						<h:commandButton value="#{msgs['grupo.primeiro']}"
 							action="#{controleGrupo.dao.primeiro()}">
 							<f:ajax execute="@form" render="@form" />
 						</h:commandButton>
-						<h:commandButton value="Anterior"
+						<h:commandButton value="#{msgs['grupo.anterior']}"
 							action="#{controleGrupo.dao.anterior()}">
 							<f:ajax execute="@form" render="@form" />
 						</h:commandButton>
-						<h:commandButton value="Proximo"
+						<h:commandButton value="#{msgs['grupo.proximo']}"
 							action="#{controleGrupo.dao.proximo()}">
 							<f:ajax execute="@form" render="@form" />
 						</h:commandButton>
-						<h:commandButton value="Ultimo"
+						<h:commandButton value="#{msgs['grupo.ultimo']}"
 							action="#{controleGrupo.dao.ultimo()}">
 							<f:ajax execute="@form" render="@form" />
 						</h:commandButton>
 					</div>
 				</f:facet>
 				<h:column>
-					<f:facet name="header">ID</f:facet>
+					<f:facet name="header">#{msgs['grupo.label.id']}</f:facet>
 				#{obj.id}
 			</h:column>
 				<h:column>
-					<f:facet name="header">Nome</f:facet>
+					<f:facet name="header">#{msgs['grupo.label.nome']}</f:facet>
 				#{obj.nome}
 			</h:column>
 				<h:column>
-					<f:facet name="header">Alterar</f:facet>
+					<f:facet name="header">#{msgs['grupo.alterar']}</f:facet>
 					<h:commandLink action="#{controleGrupo.alterar(obj)}"
-						value="Alterar" />
+						value="#{msgs['grupo.alterar']}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">Excluir</f:facet>
+					<f:facet name="header">#{msgs['grupo.excluir']}</f:facet>
 					<h:commandLink action="#{controleGrupo.excluir(obj)}"
-						value="Excluir"
+						value="#{msgs['grupo.excluir']}"
 						onclick="if (!confirm('Confirma a exclusão do grupo?')) return false" />
 				</h:column>
 			</h:dataTable>
