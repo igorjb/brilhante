@@ -4,21 +4,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 <ui:composition template="/templates/template.xhtml">
-<ui:define name="tituloJanela">Formulário de Grupos</ui:define>
+<ui:define name="tituloJanela">#{msgs['grupo.form.titulo']}</ui:define>
 	<ui:define name="conteudo">
 	<h:form>
 		<h:messages />
 		<h:panelGrid columns="2">
-			<f:facet name="header">Edição de grupos</f:facet>
 			<f:facet name="footer">
 				<div align="center">
-					<h:commandButton action="#{controleGrupo.cancelar()}" value="Cancelar" />
-					<h:commandButton action="#{controleGrupo.gravar()}" value="Gravar" />
+					<h:commandButton action="#{controleGrupo.gravar()}" value="#{msgs['grupo.form.gravar']}" />
+					<h:commandButton action="#{controleGrupo.cancelar()}" value="#{msgs['grupo.form.cancelar']}" />
 				</div>
 			</f:facet>
-			<h:outputLabel value="ID" />
+			<h:outputLabel value="#{msgs['grupo.label.id']}" />
 			<h:inputText value="#{controleGrupo.objeto.id}" readonly="true" />
-			<h:outputLabel value="Nome" />
+			<h:outputLabel value="#{msgs['grupo.label.nome']}" />
 			<h:inputText value="#{controleGrupo.objeto.nome}" maxlength="40" size="40" />
 		</h:panelGrid>
 	</h:form>

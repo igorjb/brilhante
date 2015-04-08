@@ -9,7 +9,7 @@
 		<h:form>
 			<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
 			  <h:panelGrid columns="1">
-			    <h:outputLabel value="Usuário Logado:" />
+			    <h:outputLabel value="#{msgs['login.usuario.texto']}" />
 			    <h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
 				<h:commandLink action="/index?faces-redirect=true" value="#{msgs['menu.home']}" />
 				<h:commandLink action="#{controleGrupo.listar()}" value="#{msgs['menu.grupos']}" />
@@ -20,7 +20,7 @@
 			  </h:panelGrid>
 			</h:panelGroup>
 			<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
-			    <h:commandLink action="#{controleLogin.paginaLogin()}" value="Login" />
+			    <h:commandLink action="#{controleLogin.paginaLogin()}" value="#{msgs['login.texto']}" />
 		    </h:panelGroup>
 		</h:form>
 	</body>

@@ -6,20 +6,20 @@
 
 <h:head></h:head>
 <ui:composition template="/templates/template.xhtml">
-	<ui:define name="tituloJanela">Login do Sistema</ui:define>
+	<ui:define name="tituloJanela">#{msgs['login.titulo']}</ui:define>
 	<ui:define name="conteudo">
 		<h:form>
 			<h:panelGrid columns="2">
-				<f:facet name="header">Dados do usuario</f:facet>
+				<f:facet name="header">#{msgs['login.cabecalho']}</f:facet>
 				<f:facet name="footer">
 					<div align="center">
 						<h:commandButton action="#{controleLogin.efetuarLogin()}"
-							value="Login" />
+							value="#{msgs['login.texto']}" />
 					</div>
 				</f:facet>
-				<h:outputLabel value="Usuario" />
+				<h:outputLabel value="#{msgs['login.usuario']}" />
 				<h:inputText value="#{controleLogin.usuario}" size="20" />
-				<h:outputLabel value="Senha" />
+				<h:outputLabel value="#{msgs['login.senha']}" />
 				<h:inputSecret value="#{controleLogin.senha}" />
 			</h:panelGrid>
 		</h:form>
