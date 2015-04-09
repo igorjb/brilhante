@@ -24,7 +24,6 @@ public class ControleLogin implements Serializable{
 	public void inicializar() {
 		usuario = new String();
 		senha = new String();
-		usuarioLogado = new Funcionario();
 	}
 	public ControleLogin() {
 		dao = new FuncionarioDAO();
