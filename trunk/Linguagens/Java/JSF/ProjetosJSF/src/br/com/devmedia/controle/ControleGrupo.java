@@ -2,9 +2,11 @@ package br.com.devmedia.controle;
 
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.devmedia.beans.Grupo;
 import br.com.devmedia.modelo.GrupoDAO;
@@ -61,6 +63,8 @@ public class ControleGrupo implements Serializable{
 	
 	public String gravar() {
 		if (dao.gravar(objeto)) {
+			FacesMessage msg = new FacesMessage(Uteis.getMsg("crud.sucesso.gravar"));
+			FacesContext.getCurrentInstance().addMessage("", msg);
 			return "listar";
 		} else {
 			return "form";
@@ -69,6 +73,8 @@ public class ControleGrupo implements Serializable{
 	
 	public String alterar(Grupo obj) {
 		objeto = obj;
+		FacesMessage msg = new FacesMessage(Uteis.getMsg("crud.sucesso.alterar"));
+		FacesContext.getCurrentInstance().addMessage("", msg);
 		return "form";
 	}
 	
@@ -76,6 +82,8 @@ public class ControleGrupo implements Serializable{
 		if (controleLogin.getUsuarioLogado().getGrupo().getNome().equals("Administradores"))
 		{
 			dao.excluir(obj);
+			FacesMessage msg = new FacesMessage(Uteis.getMsg("crud.sucesso.excluir"));
+			FacesContext.getCurrentInstance().addMessage("", msg);
 		} else {
 			UtilMensagens.mensagemErro("Usuário não tem autorização para exclusao!!!!");
 		}
