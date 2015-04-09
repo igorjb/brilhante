@@ -23,8 +23,8 @@ public class Grupo implements Serializable{
 	@SequenceGenerator(name="SEQ_GRUPO", sequenceName="SEQ_GRUPO_ID", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="SEQ_GRUPO")
 	private Integer id;
-	@NotEmpty(message="O nome não pode ser nulo")
-	@Length(max=50, message="O nome não pode ultrapassar {max} caracteres")
+	@NotEmpty(message="{crud.grupo.nome.notempty}")
+	@Length(max=50, message="{crud.grupo.tamanho}")
 	@Column(name="NOME", length=50, nullable=false)
 	@Index(name="IDX_GRUPO_NOME")
 	private String nome;
