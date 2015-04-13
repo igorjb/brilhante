@@ -1,6 +1,7 @@
 package br.com.devmedia.controle;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,6 +12,7 @@ import javax.faces.context.FacesContext;
 import br.com.devmedia.beans.Grupo;
 import br.com.devmedia.modelo.GrupoDAO;
 import br.com.devmedia.util.UtilMensagens;
+import br.com.devmedia.util.UtilRelatorios;
 
 @ManagedBean(name="controleGrupo")
 @SessionScoped
@@ -89,5 +91,10 @@ public class ControleGrupo implements Serializable{
 		}
 		
 		return "listar";
+	}
+	
+	public void relatorio() {
+		HashMap parametros = new HashMap();
+		UtilRelatorios.imprimeRelatorio("grupo", parametros, dao.listarTodos());
 	}
 }

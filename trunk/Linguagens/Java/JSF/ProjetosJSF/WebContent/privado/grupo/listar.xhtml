@@ -8,7 +8,9 @@
 	<ui:define name="conteudo">
 		<h:form>
 			<h:messages />
-			<h:commandLink action="#{controleGrupo.novo()}" value="#{msgs['grupo.novo']}" />
+			<h:commandButton action="#{controleGrupo.novo()}" value="#{msgs['grupo.novo']}" />
+			<h:commandButton action="#{controleGrupo.relatorio()}" value="Imprimir" onclick="this.form.target='_blank';" />
+			
 			<h:panelGrid columns="6">
 				<h:selectOneMenu value="#{controleGrupo.dao.ordem}">
 					<f:selectItem itemLabel="#{msgs['grupo.label.id']}" itemValue="#{msgs['grupo.value.id']}" />

@@ -21,16 +21,15 @@ public class UtilRelatorios {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			facesContext.responseComplete();
 			ServletContext scontext = (ServletContext) facesContext.getExternalContext().getContext();
-			String path = scontext.getRealPath("/WEB-INF/relatorios");
+			String path = scontext.getRealPath("/WEB-INF/relatorios/");
 			parametros.put("SUBREPORT_DIR", path + File.separator);
-			JasperPrint jasperPrint = JasperFillManager.fillReport(path + "/" + relatorioNome+".jasper", parametros, dataSource);
+			JasperPrint jasperPrint = JasperFillManager.fillReport(path + File.separator + relatorioNome+".jasper", parametros, dataSource);
 			byte[] b = JasperExportManager.exportReportToPdf(jasperPrint);
 			HttpServletResponse res = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 			res.setContentType("application/pdf");
 			int codigo = (int) (Math.random() * 1000);
 			res.setHeader("Content-disposition", "inline);filename=relatorio_"+codigo+".pdf");
 			res.getOutputStream().write(b);
-			res.getCharacterEncoding();
 			facesContext.responseComplete();
 		} catch (Exception e) {
 			// TODO: handle exception
