@@ -35,23 +35,26 @@
 	</background>
 	<columnHeader>
 		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="595" height="21" backcolor="#FFFFCC" uuid="bd9cbe29-84ed-419f-b3dc-c9f1734fd2bf"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="0" y="0" width="258" height="20" uuid="67907035-7bd4-41fb-a6bb-dc605a614adb"/>
+				<reportElement x="0" y="1" width="185" height="20" uuid="67907035-7bd4-41fb-a6bb-dc605a614adb"/>
 				<textElement verticalAlignment="Middle"/>
-				<text><![CDATA[Funcionario]]></text>
+				<text><![CDATA[Funcionário]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="458" y="0" width="137" height="20" uuid="33bcdebf-3323-4fb9-8717-52ba81e06c02"/>
+				<reportElement x="458" y="0" width="75" height="20" uuid="33bcdebf-3323-4fb9-8717-52ba81e06c02"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Gestor]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="358" y="0" width="100" height="20" uuid="29a11336-ad0c-4117-aec2-f06e5631e20b"/>
+				<reportElement x="285" y="0" width="173" height="20" uuid="29a11336-ad0c-4117-aec2-f06e5631e20b"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Fim Participação]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="258" y="0" width="100" height="20" uuid="0c5dbe75-fe11-4f25-bfa6-cc78f2793cc2"/>
+				<reportElement x="185" y="0" width="100" height="20" uuid="0c5dbe75-fe11-4f25-bfa6-cc78f2793cc2"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Inicio Participação]]></text>
 			</staticText>
@@ -59,23 +62,26 @@
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="595" height="20" uuid="2e0100cf-1cd5-4389-ac83-9b907f23ab1b"/>
+			</rectangle>
 			<textField>
-				<reportElement x="0" y="0" width="258" height="20" uuid="0f22538f-acdf-403e-9ddd-b9ae7856f624"/>
+				<reportElement x="0" y="0" width="185" height="20" uuid="0f22538f-acdf-403e-9ddd-b9ae7856f624"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{funcionario}.getNome()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="458" y="0" width="137" height="20" uuid="2701cbbb-25c2-4eff-a0fc-bd5b2143a253"/>
+				<reportElement x="458" y="0" width="75" height="20" uuid="2701cbbb-25c2-4eff-a0fc-bd5b2143a253"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{gestor} == true ? "Sim" : "Não"]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="358" y="0" width="100" height="20" uuid="dcbce4e0-2534-49ce-92bc-f4f7e5839d62"/>
+				<reportElement x="285" y="0" width="173" height="20" uuid="dcbce4e0-2534-49ce-92bc-f4f7e5839d62"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{fimParticipacao}.getTime()]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="258" y="0" width="100" height="20" uuid="1535edea-61cb-4be6-a7c2-8c804dbe188d"/>
+				<reportElement x="185" y="0" width="100" height="20" uuid="1535edea-61cb-4be6-a7c2-8c804dbe188d"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{inicioParticipacao}.getTime()]]></textFieldExpression>
 			</textField>

@@ -144,6 +144,6 @@ public class ControleFuncionario implements Serializable{
 
 	public void relatorio() {
 		HashMap parametros = new HashMap<>();
-		UtilRelatorios.imprimeRelatorio("funcionario", parametros, dao.listarTodos());
+		UtilRelatorios.imprimeRelatorio("funcionarios", parametros, dao.listarTodos());
 	}
 }

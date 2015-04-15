@@ -38,7 +38,7 @@
 	<columnHeader>
 		<band height="23" splitType="Stretch">
 			<rectangle>
-				<reportElement x="0" y="0" width="555" height="23" backcolor="#CCFFCC" uuid="37b6a81a-675b-4aa4-abf8-3252f5e89f9e"/>
+				<reportElement x="0" y="0" width="555" height="23" backcolor="#FFFF99" uuid="37b6a81a-675b-4aa4-abf8-3252f5e89f9e"/>
 			</rectangle>
 			<staticText>
 				<reportElement x="0" y="0" width="37" height="20" uuid="4d2b3e69-6c4a-4c2c-a79a-5a851bcfa336"/>

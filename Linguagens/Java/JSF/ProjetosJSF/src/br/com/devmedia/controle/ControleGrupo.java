@@ -95,6 +95,6 @@ public class ControleGrupo implements Serializable{
 	
 	public void relatorio() {
 		HashMap parametros = new HashMap();
-		UtilRelatorios.imprimeRelatorio("grupo", parametros, dao.listarTodos());
+		UtilRelatorios.imprimeRelatorio("grupos", parametros, dao.listarTodos());
 	}
 }
