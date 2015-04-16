@@ -1,12 +1,14 @@
 package br.com.devmedia.controle;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import br.com.devmedia.beans.Setor;
 import br.com.devmedia.modelo.DAOSetor;
+import br.com.devmedia.util.UtilRelatorios;
 
 @SuppressWarnings("serial")
 @ManagedBean(name="controleSetor")
@@ -74,6 +76,9 @@ public class ControleSetor implements Serializable{
 		this.objeto = objeto;
 	}
 	
-	
+	public void relatorio() {
+		HashMap parametros = new HashMap();
+		UtilRelatorios.imprimeRelatorio("setores", parametros, dao.listarTodos());
+	}
 
 }

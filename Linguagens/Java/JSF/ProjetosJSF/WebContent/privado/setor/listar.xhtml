@@ -10,7 +10,9 @@
 	<ui:define name="conteudo">
 		<h:form>
 			<h:messages />
-			<h:commandLink action="#{controleSetor.novo()}" value="Novo registro" />
+			<h:commandButton action="#{controleSetor.novo()}" value="Novo registro" />
+			<h:commandButton action="#{controleSetor.relatorio()}" value="Imprimir" onclick="this.form.target='_blank';" />
+			
 			<h:panelGrid columns="5">
 				<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}"
 					converter="#{controleSetor.dao.converterOrdem}">
