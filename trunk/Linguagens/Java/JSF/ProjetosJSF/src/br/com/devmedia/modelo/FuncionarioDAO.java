@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.devmedia.beans.Funcionario;
+import br.com.devmedia.beans.Grupo;
 import br.com.devmedia.controle.ControleFuncionario;
 import br.com.devmedia.jpa.EntityManagerUtil;
 import br.com.devmedia.util.UtilErros;
@@ -139,19 +140,11 @@ public class FuncionarioDAO {
 		this.totalObjetos = totalObjetos;
 	}
 	
-	
 	@SuppressWarnings("unchecked")
 	public List<Funcionario> listar() {
 		String where = "";
 		if (filtro.length() > 0)
 		{
-			if (ordem.equals("grupo"))
-			{
-				
-				Integer idGrupo = em.createQuery("select id from Grupo where upper(nome) like '"+filtro.toUpperCase()+"%' ").getResultList().size();
-				filtro = idGrupo.toString();
-			}
-			
 			if(ordem.equals("id"))
 			{
 				try {
@@ -164,7 +157,8 @@ public class FuncionarioDAO {
 			} else {
 				if (ordem.equals("grupo"))
 				{
-					where = " where "+ordem+" = "+filtro+"";
+					Integer grupoID = buscaIDGrupo();
+					where = " where "+ordem+" = "+grupoID+" ";
 				}
 				else
 				{
@@ -182,6 +176,11 @@ public class FuncionarioDAO {
 			   setMaxResults(maximosObjetos).getResultList();
 	}
 	
+	public int buscaIDGrupo() {
+		String where = " where upper(nome) like '" +filtro.toUpperCase()+"%' ";
+		String jpql = "select id from Grupo " + where;
+		return em.createQuery(jpql).getResultList().size();
+	}
 	public void primeiro() {
 		posicaoAtual = 0;
 	}
