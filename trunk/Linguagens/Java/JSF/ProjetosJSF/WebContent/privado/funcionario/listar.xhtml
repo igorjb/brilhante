@@ -17,7 +17,7 @@
 				<h:selectOneMenu value="#{controleFuncionario.dao.ordem}">
 					<f:selectItem itemLabel="ID" itemValue="id"/>
 					<f:selectItem itemLabel="Nome" itemValue="nome"/>
-					
+					<f:selectItem itemLabel="Grupo" itemValue="grupo"/>
 					<f:ajax execute="@form" render="@form"/>
 				</h:selectOneMenu>
 				<h:outputLabel value="Filtro:" />
