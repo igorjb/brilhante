@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.devmedia.beans.Funcionario;
-import br.com.devmedia.beans.Grupo;
-import br.com.devmedia.controle.ControleFuncionario;
 import br.com.devmedia.jpa.EntityManagerUtil;
 import br.com.devmedia.util.UtilErros;
 import br.com.devmedia.util.UtilMensagens;
@@ -20,7 +18,6 @@ public class FuncionarioDAO {
 	private Integer maximosObjetos = 2;
 	private Integer posicaoAtual = 0;
 	private Integer totalObjetos = 0;
-	private ControleFuncionario controleFuncionario;
 	
 	public FuncionarioDAO() {
 		em = EntityManagerUtil.getEntityManager();
@@ -143,6 +140,7 @@ public class FuncionarioDAO {
 	@SuppressWarnings("unchecked")
 	public List<Funcionario> listar() {
 		String where = "";
+		String jpql = null;
 		if (filtro.length() > 0)
 		{
 			if(ordem.equals("id"))
@@ -157,8 +155,9 @@ public class FuncionarioDAO {
 			} else {
 				if (ordem.equals("grupo"))
 				{
-					Integer grupoID = buscaIDGrupo();
-					where = " where "+ordem+" = "+grupoID+" ";
+					
+				
+					
 				}
 				else
 				{
@@ -167,19 +166,23 @@ public class FuncionarioDAO {
 				
 			}
 		}
-		String jpql = "from Funcionario " + where + " order by " + ordem;
-		totalObjetos = em.createQuery("select id from Funcionario " + where +
-										 "order by "+ordem).getResultList().size();
-		
+	
+		if (ordem.equals("grupo"))
+		{
+			jpql = "select f from Funcionario f, Grupo g where f.grupo = g.id and g.nome like '"+filtro.toUpperCase()+"%' ";
+			totalObjetos = em.createQuery("select id from Funcionario  " + where +
+					 "order by "+ordem).getResultList().size();
+		}
+		else
+		{
+			totalObjetos = em.createQuery("select id from Funcionario " + where +
+					 "order by "+ordem).getResultList().size();
+			jpql = "from Funcionario " + where + " order by " + ordem;
+		}
+	
 		return em.createQuery(jpql).
 			   setFirstResult(posicaoAtual).
 			   setMaxResults(maximosObjetos).getResultList();
-	}
-	
-	public int buscaIDGrupo() {
-		String where = " where upper(nome) like '" +filtro.toUpperCase()+"%' ";
-		String jpql = "select id from Grupo " + where;
-		return em.createQuery(jpql).getResultList().size();
 	}
 	public void primeiro() {
 		posicaoAtual = 0;
