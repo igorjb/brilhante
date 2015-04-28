@@ -156,8 +156,6 @@ public class FuncionarioDAO {
 				if (ordem.equals("grupo"))
 				{
 					
-				
-					
 				}
 				else
 				{
@@ -165,17 +163,19 @@ public class FuncionarioDAO {
 				}
 				
 			}
-		}
-	
+		} 
+		
+
+		
 		if (ordem.equals("grupo"))
 		{
 			jpql = "select f from Funcionario f, Grupo g where f.grupo = g.id and g.nome like '"+filtro.toUpperCase()+"%' ";
-			totalObjetos = em.createQuery("select id from Funcionario  " + where +
-					 "order by "+ordem).getResultList().size();
+			totalObjetos = em.createQuery(jpql).getResultList().size();
+
 		}
 		else
 		{
-			totalObjetos = em.createQuery("select id from Funcionario " + where +
+			totalObjetos = em.createQuery("select id from Funcionario f " + where +
 					 "order by "+ordem).getResultList().size();
 			jpql = "from Funcionario " + where + " order by " + ordem;
 		}
