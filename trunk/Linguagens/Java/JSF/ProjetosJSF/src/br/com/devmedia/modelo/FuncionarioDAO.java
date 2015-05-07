@@ -15,7 +15,7 @@ public class FuncionarioDAO {
 	private EntityManager em;
 	private String ordem = "id";
 	private String filtro = "";
-	private Integer maximosObjetos = 2;
+	private Integer maximosObjetos = 5;
 	private Integer posicaoAtual = 0;
 	private Integer totalObjetos = 0;
 	
@@ -171,6 +171,8 @@ public class FuncionarioDAO {
 		{
 			jpql = "select f from Funcionario f, Grupo g where f.grupo = g.id and g.nome like '"+filtro.toUpperCase()+"%' ";
 			totalObjetos = em.createQuery(jpql).getResultList().size();
+			posicaoAtual = 0;
+			maximosObjetos = totalObjetos;
 
 		}
 		else
