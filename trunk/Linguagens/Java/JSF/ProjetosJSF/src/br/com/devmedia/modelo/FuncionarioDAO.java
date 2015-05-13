@@ -157,6 +157,10 @@ public class FuncionarioDAO {
 				{
 					
 				}
+				else if (ordem.equals("setor"))
+				{
+					
+				}
 				else
 				{
 					where = " where upper("+ordem+") like '"+filtro.toUpperCase()+"%' ";
@@ -174,6 +178,13 @@ public class FuncionarioDAO {
 			posicaoAtual = 0;
 			maximosObjetos = totalObjetos;
 
+		}
+		else if (ordem.equals("setor"))
+		{
+			jpql = "select f from Funcionario f, Setor s where f.setor = s.id and s.nome like '"+filtro.toUpperCase()+"%' ";
+			totalObjetos = em.createQuery(jpql).getResultList().size();
+			posicaoAtual = 0;
+			maximosObjetos = totalObjetos;
 		}
 		else
 		{
