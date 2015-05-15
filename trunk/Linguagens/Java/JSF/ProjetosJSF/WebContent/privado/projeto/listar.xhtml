@@ -12,13 +12,44 @@
 	<ui:define name="conteudo">
 		<h:form>
 			<h:messages />
-			<h:dataTable value="#{controleProjeto.dao.listarTodos()}" var="obj"
+			<h:commandButton action="#{controleProjeto.novo()}"
+				value="Novo Registro" />
+			<h:commandButton action="#{controleProjeto.relatorio()}"
+				value="Imprimir" onclick="this.form.target='_blank'" />
+			<h:panelGrid columns="6">
+				<h:selectOneMenu value="#{controleProjeto.dao.ordem}">
+					<f:selectItem itemLabel="ID" itemValue="id"/>
+					<f:selectItem itemLabel="Nome" itemValue="nome"/>
+					<f:ajax execute="@form" render="@form"/>
+				</h:selectOneMenu>
+				<h:outputLabel value="Filtro:" />
+				<h:inputText value="#{controleProjeto.dao.filtro}">
+					<f:ajax execute="@form" render="@form" event="keyup"/>
+				</h:inputText>
+				<h:outputLabel value="Maximo de objetos" />
+				<h:inputText value="#{controleProjeto.dao.maximosObjetos}" size="3">
+					<f:ajax execute="@form" render="@form" event="keyup"/>
+				</h:inputText>
+			</h:panelGrid>
+			<h:dataTable value="#{controleProjeto.dao.listar()}" var="obj"
 				frame="box" rules="all" cellpadding="3">
-				<f:facet name="header">
-					<h:commandButton action="#{controleProjeto.novo()}"
-						value="Novo Registro" />
-					<h:commandButton action="#{controleProjeto.relatorio()}"
-						value="Imprimir" onclick="this.form.target='_blank'" />
+				<f:facet name="header">Listagem de Projetos</f:facet>
+				<f:facet name="footer">
+					<div align="center">
+						<h:outputLabel value="#{controleProjeto.dao.mensagemNavegacao}" /><br/>
+						<h:commandButton action="#{controleProjeto.dao.primeiro()}" value="Primeiro" >
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+						<h:commandButton action="#{controleProjeto.dao.anterior()}" value="Anterior" >
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+						<h:commandButton action="#{controleProjeto.dao.proximo()}" value="Proximo" >
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+						<h:commandButton action="#{controleProjeto.dao.ultimo()}" value="Ultimo" >
+							<f:ajax execute="@form" render="@form"/>
+						</h:commandButton>
+					</div>
 				</f:facet>
 				<h:column>
 					<f:facet name="header">ID</f:facet>
