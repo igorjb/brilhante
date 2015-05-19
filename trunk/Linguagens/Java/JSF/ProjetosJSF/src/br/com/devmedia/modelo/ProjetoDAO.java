@@ -33,6 +33,7 @@ public class ProjetoDAO {
 	@SuppressWarnings("unchecked")
 	public List<Projeto> listar() {
 		String where = "";
+		String jpql = null;
 		if (filtro.length() > 0)
 		{
 			if (ordem.equals("id"))
@@ -47,8 +48,20 @@ public class ProjetoDAO {
 				where = " where upper("+ordem+") like '"+filtro.toUpperCase()+ "%' ";
 			}
 		}
-		String jpql = "from Projeto " + where + " order by " + ordem;
-		totalObjetos = em.createQuery("select id from Projeto " + where + " order by "+ ordem).getResultList().size();
+		
+		if (ordem.equals("setor"))
+		{
+			jpql = "select p from Projeto p, Setor s where p.setor = s.id and s.nome like '"+filtro.toUpperCase()+"%' ";
+			totalObjetos = em.createQuery(jpql).getResultList().size();
+			posicaoAtual = 0;
+			maximosObjetos = totalObjetos;
+		}
+		else
+		{
+			jpql = "from Projeto " + where + " order by " + ordem;
+			totalObjetos = em.createQuery("select id from Projeto " + where + " order by "+ ordem).getResultList().size();
+		}
+		
 		
 		return em.createQuery(jpql).setFirstResult(posicaoAtual).setMaxResults(maximosObjetos).getResultList();
 	}
