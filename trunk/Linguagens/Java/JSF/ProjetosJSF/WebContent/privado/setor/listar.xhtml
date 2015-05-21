@@ -10,8 +10,10 @@
 	<ui:define name="conteudo">
 		<h:form>
 			<h:messages />
-			<h:commandButton action="#{controleSetor.novo()}" value="Novo registro" />
-			<h:commandButton action="#{controleSetor.relatorio()}" value="Imprimir" onclick="this.form.target='_blank';" />
+			<h:commandLink action="#{controleSetor.novo()}"
+							value=""><h:graphicImage library="images" name="new.png" width="30px" height="30px"/></h:commandLink>			
+			<h:commandLink action="#{controleSetor.relatorio()}"
+							value=""><h:graphicImage library="images" name="doc_pdf.png" width="30px" height="30px"/></h:commandLink>
 			
 			<h:panelGrid columns="5">
 				<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}"
@@ -28,51 +30,56 @@
 					<f:ajax execute="@form" render="@form" event="keyup" />
 				</h:inputText>
 			</h:panelGrid>
-			<h:dataTable value="#{controleSetor.dao.listar()}" var="obj"
-				frame="box" rules="all" cellpadding="3">
-				<f:facet name="header">Listagem de setores</f:facet>
-				<f:facet name="footer">
-					<div align="center">
-						<h:outputLabel value="#{controleSetor.dao.mensagemNavegacao}" />
-						<br />
-						<h:commandButton action="#{controleSetor.dao.primeiro()}"
-							value="Primeiro">
-							<f:ajax execute="@form" render="@form" />
-						</h:commandButton>
-						<h:commandButton action="#{controleSetor.dao.anterior()}"
-							value="Anterior">
-							<f:ajax execute="@form" render="@form" />
-						</h:commandButton>
-						<h:commandButton action="#{controleSetor.dao.proximo()}"
-							value="Proximo">
-							<f:ajax execute="@form" render="@form" />
-						</h:commandButton>
-						<h:commandButton action="#{controleSetor.dao.ultimo()}"
-							value="Ultimo">
-							<f:ajax execute="@form" render="@form" />
-						</h:commandButton>
-					</div>
-				</f:facet>
-				<h:column>
-					<f:facet name="header">ID</f:facet>
-					#{obj.id}
-				</h:column>
-				<h:column>
-					<f:facet name="header">Nome</f:facet>
-					#{obj.nome}
-				</h:column>
-				<h:column>
-					<f:facet name="header">Alterar</f:facet>
-					<h:commandLink action="#{controleSetor.alterar(obj)}"
-						value="Alterar" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Excluir</f:facet>
-					<h:commandLink action="#{controleSetor.excluir(obj)}"
-						value="Excluir"
-						onclick="if (!confirm('Confirme a exclusão do setor?')) return false;" />
-				</h:column>
-			</h:dataTable>
+			<div class="CSSTableGenerator" >
+				<h:dataTable value="#{controleSetor.dao.listar()}" var="obj"
+					frame="box" rules="all" cellpadding="3">
+					<f:facet name="header">Listagem de setores</f:facet>
+					<f:facet name="footer">
+							<div align="center">
+								<h:outputLabel value="#{controleSetor.dao.mensagemNavegacao}" />
+								<br />
+								<h:commandButton action="#{controleSetor.dao.primeiro()}"
+									value="Primeiro">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandButton>
+								<h:commandButton action="#{controleSetor.dao.anterior()}"
+									value="Anterior">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandButton>
+								<h:commandButton action="#{controleSetor.dao.proximo()}"
+									value="Proximo">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandButton>
+								<h:commandButton action="#{controleSetor.dao.ultimo()}"
+									value="Ultimo">
+									<f:ajax execute="@form" render="@form" />
+								</h:commandButton>
+							</div>
+						
+					</f:facet>
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						#{obj.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						#{obj.nome}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Alterar</f:facet>
+						<h:commandLink action="#{controleSetor.alterar(obj)}"
+							value=""><h:graphicImage library="images" name="editar.png" /></h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Excluir</f:facet>
+						<h:commandLink action="#{controleSetor.excluir(obj)}"
+							value=""
+							onclick="if (!confirm('Confirme a exclusão do setor?')) return false;">
+								<h:graphicImage library="images" name="delete.png" width="30px" height="30px" />
+							</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</div>	
 		</h:form>
 	</ui:define>
 </ui:composition>
