@@ -11,9 +11,9 @@
 		<h:form>
 			<h:messages />
 			<h:commandLink action="#{controleSetor.novo()}"
-							value=""><h:graphicImage library="images" name="new.png" width="30px" height="30px"/></h:commandLink>			
+							value=""><h:graphicImage library="images" name="novo.png" width="100px" height="40px"/></h:commandLink>			
 			<h:commandLink action="#{controleSetor.relatorio()}"
-							value=""><h:graphicImage library="images" name="doc_pdf.png" width="30px" height="30px"/></h:commandLink>
+							value=""><h:graphicImage library="images" name="imprimir.png" width="115px" height="40px"/></h:commandLink>
 			
 			<h:panelGrid columns="5">
 				<h:selectOneMenu value="#{controleSetor.dao.ordemAtual}"
@@ -33,27 +33,31 @@
 			<div class="CSSTableGenerator" >
 				<h:dataTable value="#{controleSetor.dao.listar()}" var="obj"
 					frame="box" rules="all" cellpadding="3">
-					<f:facet name="header">Listagem de setores</f:facet>
+					<f:facet name="header">CADASTRO DE SETORES</f:facet>
 					<f:facet name="footer">
 							<div align="center">
 								<h:outputLabel value="#{controleSetor.dao.mensagemNavegacao}" />
 								<br />
-								<h:commandButton action="#{controleSetor.dao.primeiro()}"
-									value="Primeiro">
+								<h:commandLink action="#{controleSetor.dao.primeiro()}"
+									value="">
+									<h:graphicImage library="images" name="primeiro.png" width="30px" height="30px"/>
 									<f:ajax execute="@form" render="@form" />
-								</h:commandButton>
-								<h:commandButton action="#{controleSetor.dao.anterior()}"
-									value="Anterior">
+								</h:commandLink>
+								<h:commandLink action="#{controleSetor.dao.anterior()}"
+									value="">
+									<h:graphicImage library="images" name="anterior.png" width="30px" height="30px"/>
 									<f:ajax execute="@form" render="@form" />
-								</h:commandButton>
-								<h:commandButton action="#{controleSetor.dao.proximo()}"
-									value="Proximo">
+								</h:commandLink>
+								<h:commandLink action="#{controleSetor.dao.proximo()}"
+									value="">
+									<h:graphicImage library="images" name="proximo.png" width="30px" height="30px"/>
 									<f:ajax execute="@form" render="@form" />
-								</h:commandButton>
-								<h:commandButton action="#{controleSetor.dao.ultimo()}"
-									value="Ultimo">
+								</h:commandLink>
+								<h:commandLink action="#{controleSetor.dao.ultimo()}"
+									value="">
+									<h:graphicImage library="images" name="ultimo.png" width="30px" height="30px"/>
 									<f:ajax execute="@form" render="@form" />
-								</h:commandButton>
+								</h:commandLink>
 							</div>
 						
 					</f:facet>
