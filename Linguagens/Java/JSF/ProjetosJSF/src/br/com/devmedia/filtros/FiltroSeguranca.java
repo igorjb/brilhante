@@ -18,6 +18,7 @@ import br.com.devmedia.controle.ControleLogin;
 @WebFilter(urlPatterns="/privado/*")
 public class FiltroSeguranca implements Filter{
 
+	String grupo; 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -37,10 +38,11 @@ public class FiltroSeguranca implements Filter{
 		} else {
 			
 			String pagina = httpRequest.getRequestURL().toString();
+			grupo = controleLogin.getUsuarioLogado().getGrupo().getNome(); 
 			//System.out.println("Pagina acessada: " + pagina);
 			if(pagina.contains("/privado/funcionario"))
 			{
-				if (!controleLogin.getUsuarioLogado().getGrupo().getNome().equals("Administradores"))
+				if (grupo.equals("Desenvolvedores"))
 				{
 					httpResponse.sendRedirect(contextPath + "/naoAutorizado.xhtml");
 				}
@@ -54,6 +56,14 @@ public class FiltroSeguranca implements Filter{
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
 	}
 
 }
