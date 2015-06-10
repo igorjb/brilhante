@@ -13,7 +13,8 @@
 		<h:form>
 			<h:messages />
 			<h:commandButton action="#{controleProjeto.novo()}"
-				value="Novo Registro" />
+				value="Novo Registro" 
+				rendered="#{controleLogin.usuarioLogado.grupo != 'Desenvolvedores'}" />
 			<h:commandButton action="#{controleProjeto.relatorio()}"
 				value="Imprimir" onclick="this.form.target='_blank'" />
 			<h:panelGrid columns="6">
@@ -89,7 +90,8 @@
 					<f:facet name="header">Excluir</f:facet>
 					<h:commandLink action="#{controleProjeto.excluir(obj)}"
 						value="Excluir"
-						onclick="if (!confirm('Confirma a exclusão do objeto'))) return false" />
+						onclick="if (!confirm('Confirma a exclusão do objeto'))) return false" 
+						rendered="#{controleLogin.usuarioLogado.grupo != 'Desenvolvedores'}"/>
 				</h:column>
 			</h:dataTable>
 		</h:form>

@@ -20,7 +20,8 @@
 							<h:commandButton action="#{controleProjeto.cancelar()}"
 								value="Cancelar" immediate="true" />
 							<h:commandButton action="#{controleProjeto.gravar()}"
-								value="Gravar" />
+								value="Gravar" 
+								rendered="#{controleLogin.usuarioLogado.grupo != 'Desenvolvedores'}" />
 						</div>
 					</f:facet>
 					<h:outputLabel value="ID" />
@@ -57,9 +58,11 @@
 					var="obj" frame="box" cellpadding="3" id="listaFuncionarios">
 					<f:facet name="header">
 						Lista de funcionarios
+						
 						<h:commandButton
 							action="#{controleProjeto.adicionarFuncionario()}"
-							value="Adicionar funcionario">
+							value="Adicionar funcionario" 
+							rendered="#{controleLogin.usuarioLogado.grupo != 'Desenvolvedores'}">
 							<f:ajax execute="@this" render="@form" />
 						</h:commandButton>
 					</f:facet>
@@ -91,7 +94,8 @@
 						<f:facet name="header">Excluir</f:facet>
 						<h:commandLink action="#{controleProjeto.removerFuncionario(obj)}"
 							value="Excluir"
-							onclick="if (!confirm('Confirma a exclusão?')) return false">
+							onclick="if (!confirm('Confirma a exclusão?')) return false"
+							rendered="#{controleLogin.usuarioLogado.grupo != 'Desenvolvedores'}">
 							<f:ajax execute="@this" render="@form" />
 						</h:commandLink>
 					</h:column>
