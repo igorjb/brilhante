@@ -9,10 +9,7 @@
 	<h:panelGroup
 		rendered="#{controleLogin.usuarioLogado.grupo == 'Administradores'}">
 		<h:panelGrid columns="1">
-			<h:outputLabel value="#{msgs['login.usuario.texto']}" />
-			<h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
-			<h:commandLink action="/index?faces-redirect=true"
-				value="#{msgs['menu.home']}" />
+
 			<h:commandLink action="#{controleGrupo.listar()}"
 				value="#{msgs['menu.grupos']}" />
 			<h:commandLink action="#{controleFuncionario.listar()}"
@@ -21,8 +18,7 @@
 				value="#{msgs['menu.projetos']}" />
 			<h:commandLink action="#{controleSetor.listar()}"
 				value="#{msgs['menu.setores']}" />
-			<h:commandLink action="#{controleLogin.efetuarLogout()}"
-				value="#{msgs['menu.sair']}" />
+			
 		</h:panelGrid>
 	</h:panelGroup>
 </body>

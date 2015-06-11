@@ -9,14 +9,10 @@
 	<h:panelGroup
 		rendered="#{controleLogin.usuarioLogado.grupo == 'Analistas'}">
 		<h:panelGrid columns="1">
-			<h:outputLabel value="#{msgs['login.usuario.texto']}" />
-			<h:outputLabel value="#{controleLogin.usuarioLogado.nome}" />
 			<h:commandLink action="#{controleFuncionario.listar()}"
 				value="#{msgs['menu.funcionarios']}" />
 			<h:commandLink action="#{controleProjeto.listar()}"
 				value="#{msgs['menu.projetos']}" />
-			<h:commandLink action="#{controleLogin.efetuarLogout()}"
-				value="#{msgs['menu.sair']}" />
 		</h:panelGrid>
 	</h:panelGroup>
 </body>
