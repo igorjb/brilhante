@@ -1,20 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:devmedia="http://java.sun.com/jsf/composite/devmedia">
-	<body>
-		<!-- <devmedia:linkImagem biblioteca="images" imagem="home.png" acao="#{controlePrincipal.home()}"/> -->
-		<h:form>
-			<ui:include src="/templates/menuAdministradores.xhtml" />
-			<ui:include src="/templates/menuAnalistas.xhtml" />
-			<ui:include src="/templates/menuDesenvolvedores.xhtml" />
-			<ui:include src="/templates/menuGestores.xhtml" />
-			
-			<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
-			    <h:commandLink action="#{controleLogin.paginaLogin()}" value="#{msgs['login.texto']}" />
-		    </h:panelGroup>
-		</h:form>
-	</body>
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:devmedia="http://java.sun.com/jsf/composite/devmedia">
+<body>
+	<!-- <devmedia:linkImagem biblioteca="images" imagem="home.png" acao="#{controlePrincipal.home()}"/> -->
+	<h:form>
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			<h:outputLabel value="#{msgs['login.usuario.texto']}" /><br/>
+			<h:outputLabel value="#{controleLogin.usuarioLogado.nome}" /><br/><br/>
+			<h:commandLink action="/index?faces-redirect=true"
+				value="#{msgs['menu.home']}" />
+		</h:panelGroup>
+
+		<ui:include src="/templates/menuAdministradores.xhtml" />
+		<ui:include src="/templates/menuAnalistas.xhtml" />
+		<ui:include src="/templates/menuDesenvolvedores.xhtml" />
+		<ui:include src="/templates/menuGestores.xhtml" />
+
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			<h:commandLink action="#{controleLogin.efetuarLogout()}"
+				value="#{msgs['menu.sair']}" />
+		</h:panelGroup>
+
+
+		<h:panelGroup rendered="#{controleLogin.usuarioLogado == null}">
+			<h:commandLink action="#{controleLogin.paginaLogin()}"
+				value="#{msgs['login.texto']}" />
+		</h:panelGroup>
+	</h:form>
+</body>
 </html>
