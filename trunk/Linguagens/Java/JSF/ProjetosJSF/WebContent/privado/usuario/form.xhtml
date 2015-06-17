@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="tituloJanela">Editar Usuário</ui:define>
+	<ui:define name="conteudo">
+		<h:form enctype="multipart/form-data">
+			<h:messages id="messages" />
+			<h:panelGrid columns="2">
+				<f:facet name="header">Editar Usuário</f:facet>
+				<f:facet name="footer">
+					<div align="center">
+						<h:commandButton action="#{controleLogin.editarUsuario()}"
+							value="Gravar" />
+					</div>
+				</f:facet>
+				<h:outputLabel value="Usuário" />
+				<h:inputText value="#{controleLogin.usuarioLogado.nomeUsuario}"
+					size="20" maxlength="20" />
+				<h:outputLabel value="Senha" />
+				<h:inputSecret value="#{controleLogin.usuarioLogado.senha}" size="20"
+					maxlength="10" redisplay="true" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

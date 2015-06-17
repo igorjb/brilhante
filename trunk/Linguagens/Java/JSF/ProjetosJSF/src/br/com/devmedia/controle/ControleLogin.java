@@ -82,6 +82,12 @@ public class ControleLogin implements Serializable{
 		this.senha = senha;
 	}
 
-	
+	public String editarUsuario() {
+		if (dao.gravar(usuarioLogado)){
+			return "form";
+		}else {
+			return "";
+		}
+	}
 	
 }
