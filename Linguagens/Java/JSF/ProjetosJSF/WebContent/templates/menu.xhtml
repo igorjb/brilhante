@@ -20,6 +20,7 @@
 		<ui:include src="/templates/menuGestores.xhtml" />
 
 		<h:panelGroup rendered="#{controleLogin.usuarioLogado != null}">
+			<h:link outcome="/privado/usuario/form.xhtml" value="Editar Usuário"/><br/>
 			<h:commandLink action="#{controleLogin.efetuarLogout()}"
 				value="#{msgs['menu.sair']}" />
 		</h:panelGroup>
