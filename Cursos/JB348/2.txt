@@ -1,0 +1,37 @@
+Cluster
+ - coleção de servidores EAP que se comunicam uns com os outros, de tal maneira que eles melhoram a disponibilidade de serviços, 
+ fornecendo as seguintes capacidades:
+	- Alta Disponibilidade(HA): um serviço tem uma disponibilidade muito alta de estar disponível;
+	- Escalabilidade: um serviço pode lidar com um grande número de requisições espalhando a carga de trabalho entre vários servidores;
+	- Failover:se um serviço falhar, o cliente pode continuar a processar suas tarefas com outro membro do cluster que assume as requisições do cliente;
+	- Tolerancia a Falha: um servidor pode garantir o comportamento correto, mesmo que ocorra failover;
+	- Balanceamento de carga: requisições estão espalhadas ao longo do cluster para que nenhum servidor no cluster fique sobrecarregado com conexões;
+	
+Em EAP 6, pense em um cluster como um grupo de servidores configurados identicamente que se comunicam uns com os outros para garantir que o cluster 
+forneça HA, failover e os outros recursos. No modo Domínio, um cluster é realmente uma coleção de servidores em um grupo, com cada servidor que representa 
+os nós do cluster.
+
+Em um ambiente em cluster, dados semelhantes são replicados para cada nó no cluster. Esses dados são armazenados em um cache, e o mecanismo de cache e recursos 
+são implementados por um quadro chamado infinispan. Infinispan substitui JBoss Cache como o provedor de cache para EAP 6. Você pode definir seus próprios caches 
+ou usar um que vem pré-configurado na EAP 6.
+
+Um cache é definido dentro de um contêiner cache. Há quatro contêineres de cache pré-configurados nos perfis ha e full-ha:
+
+- Web: para replicação de sessão;
+- Hibernate: para entidades caching;
+- ejb: replicação de stateful session bean, e
+- singleton: para singleton caching;
+
+
+Existem quatro tipos diferentes de caches, comumente referido como modos:
+
+Local: nenhuma replicação do cache é feito, todas as informações são armazenadas em cache no apenas o sistema local. O uso chave aqui é que um cache infinispan locais fácil de migrar 
+para um cache distribuído mais tarde como seu aplicativo cresce, uma vez que o aplicativo já serão codificados para armazenamento em cache
+
+Invalidação: todas as entradas são armazenados num armazenamento de cache (tal como um banco de dados) apenas, e invalidados de todos os nós. Quando um nó precisa a entrada que vai carregá-lo a partir de um 
+armazenamento de cache. Neste modo infinispan está operando como um cache distribuído, suportado por um armazenamento de dados canônico, como um banco de dados
+
+Replicada: todas as entradas no cache são replicados para todos os nós do cluster
+
+Distribuído: redundância em todo o cluster é garantida, mas nem todos os nós realizam todas as entradas. Ao definir o número de proprietários em um cache distribuído, você pode 
+controlar quantas réplicas são criadas
